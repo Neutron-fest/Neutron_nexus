@@ -1,0 +1,213 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  --background: #05050e;
+  --foreground: #00f5ff;
+  --card: #0a0a0f;
+  --card-foreground: #00f5ff;
+  --popover: #0a0a0f;
+  --popover-foreground: #00f5ff;
+  --primary: #00f5ff;
+  --primary-foreground: #05050e;
+  --secondary: #00e5cc;
+  --secondary-foreground: #05050e;
+  --muted: #1a1a2e;
+  --muted-foreground: #7a7a9e;
+  --accent: #f5a623;
+  --accent-foreground: #05050e;
+  --destructive: #ff4444;
+  --destructive-foreground: #ffffff;
+  --border: #1a1a2e;
+  --input: #0a0a0f;
+  --ring: #00f5ff;
+  --chart-1: #00f5ff;
+  --chart-2: #00e5cc;
+  --chart-3: #f5a623;
+  --chart-4: #ff4444;
+  --chart-5: #00d4aa;
+  --radius: 0.625rem;
+  --sidebar: #05050e;
+  --sidebar-foreground: #00f5ff;
+  --sidebar-primary: #00f5ff;
+  --sidebar-primary-foreground: #05050e;
+  --sidebar-accent: #f5a623;
+  --sidebar-accent-foreground: #05050e;
+  --sidebar-border: #1a1a2e;
+  --sidebar-ring: #00f5ff;
+  --glow: #00f5ff;
+  --glow-secondary: #f5a623;
+}
+
+@theme inline {
+  --font-sans: 'Geist', 'Geist Fallback';
+  --font-mono: 'Geist Mono', 'Geist Mono Fallback';
+  --font-orbitron: 'Orbitron';
+  --font-ibm-plex: 'IBM Plex Mono';
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+
+  /* Keep browser autofill aligned with the dark UI theme. */
+  input:-webkit-autofill,
+  input:-webkit-autofill:hover,
+  input:-webkit-autofill:focus,
+  textarea:-webkit-autofill,
+  textarea:-webkit-autofill:hover,
+  textarea:-webkit-autofill:focus,
+  select:-webkit-autofill,
+  select:-webkit-autofill:hover,
+  select:-webkit-autofill:focus {
+    -webkit-text-fill-color: #ffffff;
+    box-shadow: 0 0 0 1000px #03050a inset;
+    -webkit-box-shadow: 0 0 0 1000px #03050a inset;
+    caret-color: #22d3ee;
+    transition: background-color 9999s ease-in-out 0s;
+  }
+}
+
+@layer utilities {
+  .glow-cyan {
+    text-shadow: 0 0 20px rgba(0, 245, 255, 0.5);
+    box-shadow: 0 0 20px rgba(0, 245, 255, 0.3), inset 0 0 20px rgba(0, 245, 255, 0.1);
+  }
+
+  .glow-amber {
+    text-shadow: 0 0 20px rgba(245, 166, 35, 0.5);
+    box-shadow: 0 0 20px rgba(245, 166, 35, 0.3), inset 0 0 20px rgba(245, 166, 35, 0.1);
+  }
+
+  .border-glow {
+    border-color: rgba(0, 245, 255, 0.3);
+    box-shadow: inset 0 0 15px rgba(0, 245, 255, 0.1), 0 0 15px rgba(0, 245, 255, 0.1);
+  }
+
+  .glass {
+    background: rgba(10, 10, 15, 0.6);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(0, 245, 255, 0.1);
+  }
+
+  .particle-dot {
+    position: relative;
+  }
+
+  .particle-dot::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+      radial-gradient(1px 1px at 10% 20%, #00f5ff, transparent),
+      radial-gradient(1px 1px at 50% 50%, #00e5cc, transparent),
+      radial-gradient(1px 1px at 70% 80%, #00f5ff, transparent),
+      radial-gradient(1px 1px at 90% 10%, #f5a623, transparent);
+    background-size: 200% 200%;
+    background-repeat: repeat;
+    opacity: 0.15;
+    animation: drift 20s linear infinite;
+    pointer-events: none;
+  }
+
+  @keyframes drift {
+    0% {
+      transform: translate(0, 0);
+    }
+
+    100% {
+      transform: translate(50px, 50px);
+    }
+  }
+
+  @keyframes glow-pulse {
+
+    0%,
+    100% {
+      box-shadow: 0 0 20px rgba(0, 245, 255, 0.3), inset 0 0 20px rgba(0, 245, 255, 0.1);
+    }
+
+    50% {
+      box-shadow: 0 0 40px rgba(0, 245, 255, 0.6), inset 0 0 30px rgba(0, 245, 255, 0.2);
+    }
+  }
+
+  .animate-glow {
+    animation: glow-pulse 3s ease-in-out infinite;
+  }
+
+  @keyframes float {
+
+    0%,
+    100% {
+      transform: translateY(0px);
+    }
+
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  @keyframes slide-up {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-slide-up {
+    animation: slide-up 0.35s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  }
+}
