@@ -1,7 +1,8 @@
 'use client'
 
 import { useEffect, useState } from 'react'
-import { useRouter } from 'next/navigation'
+
+const SUBMISSION_URL = 'https://jasper-crest-d0c.notion.site/32305ae3df3380508209ec1f3b1511a1'
 
 interface NavbarProps {
     onSubmit?: () => void
@@ -13,7 +14,6 @@ const navLinks = [
 ]
 
 export default function Navbar({ onSubmit }: NavbarProps) {
-    const router = useRouter()
     const [scrolled, setScrolled] = useState(false)
     const [menuOpen, setMenuOpen] = useState(false)
 
@@ -74,7 +74,7 @@ export default function Navbar({ onSubmit }: NavbarProps) {
                 {/* Right cluster */}
                 <div className="hidden md:flex items-center gap-2">
                     <button
-                        onClick={onSubmit ?? (() => router.push('/submit'))}
+                        onClick={onSubmit ?? (() => { window.location.href = SUBMISSION_URL })}
                         className="font-ibm-plex text-[10px] px-4 py-1.5 rounded-md border border-white/[0.1] text-neutral-400 hover:text-white hover:border-white/20 transition-all duration-200 uppercase tracking-widest"
                     >
                         Submit Project
@@ -119,7 +119,7 @@ export default function Navbar({ onSubmit }: NavbarProps) {
                     ))}
                     <li className="pt-2 border-t border-white/[0.05]">
                         <button
-                            onClick={() => { setMenuOpen(false); (onSubmit ?? (() => router.push('/submit')))() }}
+                            onClick={() => { setMenuOpen(false); (onSubmit ?? (() => { window.location.href = SUBMISSION_URL }))() }}
                             className="font-ibm-plex text-sm px-5 py-2.5 rounded-lg border border-white/10 text-neutral-300 hover:text-white hover:border-white/20 transition-all duration-200 w-full text-center"
                         >
                             Submit Project

@@ -2,8 +2,9 @@
 
 import React, { useEffect, useMemo, useRef } from 'react'
 import { motion, useScroll, useSpring, useTransform } from 'framer-motion'
-import { useRouter } from 'next/navigation'
 import { ArrowRight, Globe, Layers, Radar } from 'lucide-react'
+
+const SUBMISSION_URL = 'https://jasper-crest-d0c.notion.site/32305ae3df3380508209ec1f3b1511a1'
 
 const OrbitRing = ({ className, delay = 0 }: { className?: string; delay?: number }) => (
   <motion.div
@@ -24,7 +25,6 @@ const MetricPlate = ({ label, value, suffix }: { label: string; value: string; s
 )
 
 export default function Hero() {
-  const router = useRouter()
   const sectionRef = useRef<HTMLElement>(null)
   const springX = useSpring(0, { damping: 28, stiffness: 115 })
   const springY = useSpring(0, { damping: 28, stiffness: 115 })
@@ -129,7 +129,7 @@ export default function Hero() {
               <motion.button
                 whileHover={{ y: -2, scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
-                onClick={() => router.push('/submit')}
+                onClick={() => { window.location.href = SUBMISSION_URL }}
                 className="group inline-flex h-12 items-center gap-2 rounded-sm border border-cyan-500/30 bg-cyan-500/10 px-6 font-orbitron text-xs font-black uppercase tracking-[0.28em] text-white transition-colors hover:bg-cyan-500/20"
               >
                 Submit Project

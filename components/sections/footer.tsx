@@ -4,6 +4,8 @@ import React from 'react'
 import { motion } from 'framer-motion'
 import { Terminal, Shield, Cpu, Globe, ArrowUpRight, Github, Twitter, Linkedin, Hexagon } from 'lucide-react'
 
+const SUBMISSION_URL = 'https://jasper-crest-d0c.notion.site/32305ae3df3380508209ec1f3b1511a1'
+
 const FooterLink = ({ href, label, index }: { href: string; label: string; index: number }) => (
   <motion.a
     href={href}
@@ -81,7 +83,7 @@ export default function Footer() {
                 <FooterLink href="#hero" label="Core_Terminal" index={0} />
                 <FooterLink href="#about" label="Innovation_Vision" index={1} />
                 <FooterLink href="#events" label="Deployment_Tracks" index={2} />
-                <FooterLink href="/submit" label="Initiate_Submission" index={3} />
+                <FooterLink href={SUBMISSION_URL} label="Initiate_Submission" index={3} />
               </nav>
 
               {/* Industrial Socials */}
