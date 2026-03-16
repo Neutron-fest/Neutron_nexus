@@ -62,7 +62,7 @@ export default function MentorsJudges() {
       id="panel"
       className="relative w-full bg-black section-grain py-36 px-6 lg:px-20 overflow-hidden"
     >
-      <div className="absolute top-0 left-0 w-full h-px bg-white/[0.05]" />
+      <div className="absolute top-0 left-0 w-full h-px bg-white/5" />
 
       <div className="relative z-10 max-w-7xl mx-auto flex flex-col gap-24">
         <div className="flex flex-col gap-10">
@@ -85,7 +85,7 @@ export default function MentorsJudges() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
-              className="font-outfit font-black text-[clamp(3rem,8vw,7rem)] leading-[0.92] text-white uppercase tracking-tight flex-shrink-0"
+              className="font-outfit font-black text-[clamp(3rem,8vw,7rem)] leading-[0.92] text-white uppercase tracking-tight shrink-0"
             >
               Mentors<br />
               <span className="font-serif italic font-normal text-white/25">&amp; Judges.</span>
@@ -95,7 +95,7 @@ export default function MentorsJudges() {
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
               transition={{ delay: 0.4, duration: 0.9 }}
-              className="font-serif italic text-[1rem] text-white/40 max-w-sm leading-relaxed border-l border-white/[0.06] pl-10"
+              className="font-serif italic text-[1rem] text-white/40 max-w-sm leading-relaxed border-l border-white/6 pl-10"
             >
               A curated circle of operators and visionaries responsible for evaluating innovation potential and providing critical venture feedback.
             </motion.p>
@@ -112,7 +112,7 @@ export default function MentorsJudges() {
               transition={{ delay: i * 0.1, duration: 0.8 }}
               className="panel-member group flex flex-col gap-8"
             >
-              <div className="aspect-[4/5] w-full relative overflow-hidden bg-[#0d0d0d]">
+              <div className="aspect-4/5 w-full relative overflow-hidden bg-[#0d0d0d]">
                 <img
                   src={member.image}
                   alt={member.name}
