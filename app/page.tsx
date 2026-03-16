@@ -4,6 +4,7 @@ import Navbar from '@/components/sections/navbar'
 import Hero from '@/components/sections/hero'
 import About from '@/components/sections/about'
 import EventHighlights from '@/components/sections/event-highlights'
+import InTheRoom from '@/components/sections/in-the-room'
 import Partners from '@/components/sections/partners'
 import MentorsJudges from '@/components/sections/mentors-judges'
 import EventSchedule from '@/components/sections/event-schedule'
@@ -21,6 +22,7 @@ export default function Home() {
       <About />
       <LinkPreviewSection />
       <EventHighlights />
+      <InTheRoom />
       <Partners />
       <MentorsJudges />
       <EventSchedule />
