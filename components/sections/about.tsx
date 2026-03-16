@@ -1,7 +1,7 @@
 'use client'
 
-import React, { useRef, useEffect } from 'react'
-import { motion, useScroll, useTransform } from 'framer-motion'
+import React, { useRef, useEffect, useState } from 'react'
+import { motion, useScroll, useTransform, useSpring, useMotionValue } from 'framer-motion'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 
@@ -26,11 +26,93 @@ const pillars = [
 ]
 
 const stats = [
-  { label: 'Active Ventures', value: '44+' },
-  { label: 'Industry Nodes', value: '12+' },
-  { label: 'Tracks', value: '08+' },
-  { label: 'Network', value: '100%' },
+  { label: 'Active Ventures', value: 44, suffix: '+' },
+  { label: 'Industry Nodes', value: 12, suffix: '+' },
+  { label: 'Tracks', value: 8, suffix: '+', prefix: '0' },
+  { label: 'Network', value: 100, suffix: '%' },
 ]
+
+function StatCounter({ value, prefix = '', suffix = '' }: { value: number; prefix?: string; suffix?: string }) {
+  const [count, setCount] = useState(0)
+  const countRef = useRef<HTMLSpanElement>(null)
+
+  useEffect(() => {
+    const node = countRef.current
+    if (!node) return
+
+    const controls = gsap.to({ val: 0 }, {
+      val: value,
+      duration: 2,
+      ease: "power3.out",
+      scrollTrigger: {
+        trigger: node,
+        start: "top 90%",
+      },
+      onUpdate: function() {
+        setCount(Math.floor(this.targets()[0].val))
+      }
+    })
+
+    return () => {
+      controls.kill()
+    }
+  }, [value])
+
+  return (
+    <span ref={countRef}>
+      {prefix}{count < 10 && prefix === '0' ? `0${count}` : count}{suffix}
+    </span>
+  )
+}
+
+function StatItem({ label, value, prefix, suffix }: { label: string; value: number; prefix?: string; suffix?: string }) {
+  const mouseX = useMotionValue(0)
+  const mouseY = useMotionValue(0)
+  const containerRef = useRef<HTMLDivElement>(null)
+
+  function handleMouseMove({ currentTarget, clientX, clientY }: React.MouseEvent) {
+    const { left, top } = currentTarget.getBoundingClientRect()
+    mouseX.set(clientX - left)
+    mouseY.set(clientY - top)
+  }
+
+  return (
+    <div
+      ref={containerRef}
+      onMouseMove={handleMouseMove}
+      className="stat-item group relative flex-1 py-12 px-8 border-r border-white/5 last:border-r-0 space-y-3 overflow-hidden transition-colors duration-500 hover:bg-white/2"
+    >
+      {/* Interactive Spotlight Overlay */}
+      <motion.div
+        className="pointer-events-none absolute -inset-px opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+        style={{
+          background: useTransform(
+            [mouseX, mouseY],
+            ([x, y]) => `radial-gradient(400px circle at ${x}px ${y}px, rgba(255,255,255,0.06), transparent 80%)`
+          ),
+        }}
+      />
+      
+      {/* Decorative Corner Accent */}
+      <div className="absolute top-0 right-0 w-16 h-16 pointer-events-none overflow-hidden opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+        <div className="absolute top-0 right-0 w-[2px] h-4 bg-white/20 translate-x-[0.5px]" />
+        <div className="absolute top-0 right-0 w-4 h-[2px] bg-white/20 translate-y-[-0.5px]" />
+      </div>
+
+      <div className="relative z-10 space-y-3">
+        <span className="font-outfit text-[9px] uppercase tracking-[0.5em] text-white/25 font-medium block group-hover:text-white/40 transition-colors duration-300">
+          {label}
+        </span>
+        <div className="font-outfit font-black text-[clamp(2rem,5vw,3.5rem)] text-white leading-none tracking-tighter">
+          <StatCounter value={value} prefix={prefix} suffix={suffix} />
+        </div>
+      </div>
+      
+      {/* Nexus Dot Accent */}
+      <div className="absolute bottom-4 right-4 w-1 h-1 rounded-full bg-white/5 group-hover:bg-white/20 group-hover:scale-[2] transition-all duration-500" />
+    </div>
+  )
+}
 
 export default function About() {
   const containerRef = useRef<HTMLElement>(null)
@@ -150,15 +232,28 @@ export default function About() {
           ))}
         </div>
 
-        <div className="stats-wrapper flex flex-col sm:flex-row gap-0 border-t border-white/5">
+        <div className="stats-wrapper relative flex flex-col sm:flex-row gap-0 border-t border-y border-white/5 overflow-hidden">
+          {/* Scanning Line Effect */}
+          <motion.div
+            animate={{
+              y: ["0%", "100%", "0%"],
+            }}
+            transition={{
+              duration: 8,
+              repeat: Infinity,
+              ease: "linear",
+            }}
+            className="absolute inset-x-0 h-px bg-linear-to-r from-transparent via-white/10 to-transparent z-20 pointer-events-none"
+          />
+          
           {stats.map((s) => (
-            <div
+            <StatItem 
               key={s.label}
-              className="stat-item flex-1 py-12 pr-12 border-r border-white/5 last:border-r-0 space-y-3"
-            >
-              <span className="font-outfit text-[9px] uppercase tracking-[0.5em] text-white/25 font-medium block">{s.label}</span>
-              <span className="font-outfit font-black text-[clamp(2rem,5vw,3.5rem)] text-white leading-none">{s.value}</span>
-            </div>
+              label={s.label}
+              value={s.value}
+              prefix={s.prefix}
+              suffix={s.suffix}
+            />
           ))}
         </div>
       </div>
