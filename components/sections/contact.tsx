@@ -7,7 +7,7 @@ export default function Contact() {
   return (
     <section
       id="contact"
-      className="relative w-full bg-black section-grain py-36 px-6 lg:px-20 overflow-hidden"
+      className="relative w-full bg-black section-grain py-6 lg:py-36 px-6 lg:px-20 overflow-hidden"
     >
       <div className="absolute top-0 left-0 w-full h-px" style={{ background: 'rgba(210,230,255,0.07)' }} />
 

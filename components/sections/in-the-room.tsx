@@ -98,7 +98,7 @@ export default function InTheRoom() {
   const [activeId, setActiveId] = useState<number | null>(null)
 
   return (
-    <section id="sessions" className="relative w-full bg-black py-36 px-6 lg:px-20 overflow-hidden">
+    <section id="sessions" className="relative w-full bg-black py-6 lg:py-36 px-6 lg:px-20 overflow-hidden">
       <div className="relative z-10 max-w-7xl mx-auto flex flex-col gap-20">
         <div className="flex flex-col gap-8">
           <motion.div
@@ -139,7 +139,7 @@ export default function InTheRoom() {
           ))}
         </div>
 
-        <div className="mt-12 flex justify-between items-end border-t border-white/5 pt-12">
+        <div className="md:mt-12 flex justify-between items-end border-t border-white/5 pt-12">
           <div className="space-y-2">
              <span className="font-outfit text-[9px] uppercase tracking-[0.5em] text-white/20 block font-medium">Session Protocol</span>
              <p className="font-serif italic text-sm text-white/40 max-w-xs">High-fidelity documentation of the orchestration process and strategic validation sprints.</p>

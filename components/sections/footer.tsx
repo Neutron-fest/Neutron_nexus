@@ -78,21 +78,21 @@ export default function Footer() {
       <div className="w-full mt-auto pt-24 flex flex-col items-center z-10 relative">
         
         {/* Bottom Bar moved up above the hidden text */}
-        <div className="w-full max-w-[1600px] mx-auto flex flex-col md:flex-row justify-between items-center mb-10 pb-4 border-b border-white/5 text-white/30 font-outfit text-[9px] uppercase tracking-[0.3em] gap-6 z-20">
+        <div className="w-full max-w-[1600px] mx-auto flex flex-col md:flex-row justify-between items-center mb-10 pb-4 border-b border-white/5 text-white/30 font-outfit text-[9px] uppercase tracking-[0.3em] gap-6 z-20 text-center md:text-left">
           <span>© 2026 Neutron Nexus. All rights reserved.</span>
-          <div className="flex items-center gap-8">
+          <div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-8">
             <Link href="#" className="hover:text-white/70 transition-colors">Privacy Policy</Link>
             <Link href="#" className="hover:text-white/70 transition-colors">Terms of Service</Link>
           </div>
         </div>
 
-        <div className="w-full relative flex justify-center items-center leading-none tracking-tighter select-none pointer-events-none pb-[4vw] -mb-[8vw]">
-          <h1 className="absolute font-serif italic font-light text-transparent bg-clip-text bg-linear-to-t from-[#d2e6ff]/5 to-[#d2e6ff]/40 w-full text-center z-0 translate-y-[6vw]"
-              style={{ fontSize: 'clamp(8rem, 28vw, 36rem)' }}>
+        <div className="w-full relative flex flex-col justify-center items-center leading-none select-none pointer-events-none pb-[4vw] -mb-[8vw] overflow-visible">
+          <h1 className="absolute px-8 md:px-12 font-serif italic font-light text-transparent bg-clip-text bg-linear-to-t from-[#d2e6ff]/5 to-[#d2e6ff]/40 w-auto text-center z-0 translate-y-[6vw] tracking-normal"
+              style={{ fontSize: 'clamp(4.5rem, 20vw, 36rem)' }}>
             NEXUS
           </h1>
-          <h1 className="relative font-outfit font-black uppercase text-transparent bg-clip-text bg-linear-to-b from-white/90 to-white/10 w-full text-center mb-20 z-10"
-              style={{ fontSize: 'clamp(6rem, 17vw, 20rem)' }}>
+          <h1 className="relative px-8 md:px-12 font-outfit font-black uppercase text-transparent bg-clip-text bg-linear-to-b from-white/90 to-white/10 w-auto text-center mb-12 md:mb-20 z-10 tracking-tight"
+              style={{ fontSize: 'clamp(3rem, 13vw, 26rem)', letterSpacing: '-0.02em' }}>
             NEUTRON
           </h1>
         </div>

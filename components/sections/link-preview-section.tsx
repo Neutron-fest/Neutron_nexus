@@ -62,8 +62,8 @@ export default function ProjectsHome() {
       <div className="absolute top-0 left-0 w-full h-px pointer-events-none"
         style={{ background: 'linear-gradient(90deg, transparent 0%, rgba(210,230,255,0.15) 40%, rgba(210,230,255,0.15) 60%, transparent 100%)' }} />
 
-      <div className="sticky top-0 w-full overflow-hidden" style={{ height: '100vh' }}>
-        <div className="absolute top-0 left-0 right-0 z-30 px-6 lg:px-20 pt-16 flex items-center justify-between pointer-events-none">
+      <div className="sticky top-20 md:top-0 w-full overflow-hidden" style={{ height: '100vh' }}>
+        <div className="absolute top-0 left-0 right-0 z-30 px-6 lg:px-20 pt-24 md:pt-32 flex items-center justify-between pointer-events-none">
         </div>
 
         {/* Large ghost index number */}
@@ -84,7 +84,7 @@ export default function ProjectsHome() {
         </div>
 
         {/* Main content layout */}
-        <div className="relative h-full flex flex-col justify-end pb-20 px-6 lg:px-20 z-10">
+        <div className="relative h-full flex flex-col justify-end pt-28 pb-20 px-6 lg:px-20 z-10">
           <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.1fr] gap-12 lg:gap-24 items-end max-w-[1600px] mx-auto w-full">
 
 
@@ -151,10 +151,9 @@ export default function ProjectsHome() {
                 ))}
               </div>
 
-              {/* CTA */}
               <Link
                 href="/projects"
-                className="group self-start flex items-center gap-8 border mt-4 px-10 py-5 font-outfit text-[11px] uppercase tracking-[0.35em] font-bold transition-all duration-500"
+                className="group self-start flex items-center gap-8 border mt-4 px-6 md:px-10 py-5 font-outfit text-[8px] md:text-[11px] uppercase tracking-[0.35em] font-bold transition-all duration-500"
                 style={{ borderColor: 'rgba(255,255,255,0.15)', color: '#ffffff' }}
               >
                 <span className="opacity-80 group-hover:opacity-100 transition-opacity">View All Projects</span>

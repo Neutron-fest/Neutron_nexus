@@ -89,7 +89,12 @@ function StatItem({ label, value, prefix, suffix }: { label: string; value: numb
     <div
       ref={containerRef}
       onMouseMove={handleMouseMove}
-      className="stat-item group relative flex-1 py-12 px-8 border-r border-white/5 last:border-r-0 space-y-3 overflow-hidden transition-colors duration-500 hover:bg-white/2"
+      className={`stat-item group relative flex-1 py-12 px-8 border-white/5 space-y-3 overflow-hidden transition-colors duration-500 hover:bg-white/2
+        border-b md:border-b-0
+        nth-1:border-r nth-2:border-r-0 md:nth-2:border-r
+        nth-3:border-r nth-3:border-b-0
+        nth-4:border-0 md:nth-3:border-r
+      `}
     >
       <motion.div
         className="pointer-events-none absolute -inset-px opacity-0 group-hover:opacity-100 transition-opacity duration-300"
@@ -307,7 +312,7 @@ export default function About() {
         ref={containerRef}
         id="vision"
         onMouseMove={handleMouseMove}
-        className="relative w-full bg-black section-grain py-48 px-6 lg:px-20 overflow-hidden"
+        className="relative w-full bg-black section-grain py-24 md:py-48 px-6 lg:px-20 overflow-hidden"
       >
         <div className="absolute inset-0 pointer-events-none">
           <motion.div
@@ -318,9 +323,9 @@ export default function About() {
           </motion.div>
         </div>
 
-        <div className="relative z-10 max-w-7xl mx-auto flex flex-col gap-32">
-          <div className="flex flex-col gap-16" ref={headingRef}>
-            <div className="flex flex-col lg:flex-row gap-20 lg:gap-32 items-start lg:items-end">
+        <div className="relative z-10 max-w-7xl mx-auto flex flex-col gap-20 md:gap-32">
+          <div className="flex flex-col gap-12 md:gap-16" ref={headingRef}>
+            <div className="flex flex-col lg:flex-row gap-12 md:gap-20 lg:gap-32 items-start lg:items-end">
               <motion.h2
                 initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -337,9 +342,9 @@ export default function About() {
                 whileInView={{ opacity: 1 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.5, duration: 1 }}
-                className="max-w-md space-y-6 border-l border-white/10 pl-12"
+                className="max-w-md space-y-6 border-l border-white/10 pl-6 md:pl-12"
               >
-                <p className="font-serif italic text-[1.15rem] text-white/40 leading-relaxed">
+                <p className="font-serif italic text-sm md:text-xl text-white/40 leading-relaxed">
                   Neutron Nexus is not merely an event — it is a high-fidelity assembly. We merge the raw agility of a startup foundry with the strategic reach of a global launchpad.
                 </p>
                 <div className="flex items-center gap-4">
@@ -366,7 +371,7 @@ export default function About() {
             ))}
           </div>
 
-          <div className="stats-wrapper relative flex flex-col sm:flex-row gap-0 border-t border-y border-white/5 overflow-hidden">
+          <div className="stats-wrapper relative grid grid-cols-2 md:flex md:flex-row gap-0 border-t border-y border-white/5 overflow-hidden">
             <motion.div
               animate={{
                 y: ["0%", "100%", "0%"],
@@ -379,7 +384,7 @@ export default function About() {
               className="absolute inset-x-0 h-px bg-linear-to-r from-transparent via-white/10 to-transparent z-20 pointer-events-none"
             />
             
-            {stats.map((s) => (
+            {stats.map((s, idx) => (
               <StatItem 
                 key={s.label}
                 label={s.label}

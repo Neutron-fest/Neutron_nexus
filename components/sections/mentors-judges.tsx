@@ -64,7 +64,7 @@ export default function MentorsJudges() {
   return (
     <section
       id="panel"
-      className="relative w-full bg-black section-grain py-36 px-6 lg:px-20 overflow-hidden"
+      className="relative w-full bg-black section-grain py-6 lg:py-36 px-6 lg:px-20 overflow-hidden"
     >
       <div className="absolute top-0 left-0 w-full h-px" style={{ background: 'rgba(210,230,255,0.07)' }} />
 
@@ -111,7 +111,7 @@ export default function MentorsJudges() {
           </div>
         </div>
 
-        <div className="panel-members grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-6">
+        <div className="panel-members grid grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6">
           {panel.map((member, i) => (
             <motion.div
               key={member.name}
@@ -135,7 +135,7 @@ export default function MentorsJudges() {
 
                 {/* Specialty tag */}
                 <div
-                  className="absolute top-4 left-4 px-3 py-1.5 font-outfit text-[8px] uppercase tracking-[0.5em] font-black opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-2 group-hover:translate-y-0"
+                  className="absolute top-3 left-3 px-2 py-1 md:top-4 md:left-4 md:px-3 md:py-1.5 font-outfit text-[6px] md:text-[8px] uppercase tracking-[0.5em] font-black opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-2 group-hover:translate-y-0"
                   style={{ background: 'rgba(0,0,0,0.6)', color: '#d2e6ff', border: '1px solid rgba(210,230,255,0.2)', backdropFilter: 'blur(8px)' }}
                 >
                   {member.specialty}
@@ -154,19 +154,19 @@ export default function MentorsJudges() {
 
               {/* Info */}
               <div
-                className="flex flex-col gap-3 p-5 border border-t-0 transition-colors duration-500"
+                className="flex flex-col gap-2 md:gap-3 p-3 md:p-5 border border-t-0 transition-colors duration-500"
                 style={{ borderColor: 'rgba(255,255,255,0.05)', background: 'rgba(210,230,255,0.012)' }}
               >
                 <div className="space-y-0.5">
-                  <h3 className="font-outfit font-black text-[1.15rem] uppercase tracking-tight leading-tight group-hover:text-[#d2e6ff] transition-colors duration-500 text-white">
+                  <h3 className="font-outfit font-black text-[0.95rem] md:text-[1.15rem] uppercase tracking-tight leading-tight group-hover:text-[#d2e6ff] transition-colors duration-500 text-white line-clamp-1">
                     {member.name}
                   </h3>
                 </div>
-                <p className="font-serif italic text-[0.84rem] text-white/40 leading-relaxed">
+                <p className="font-serif italic text-[0.75rem] md:text-[0.84rem] text-white/40 leading-relaxed line-clamp-2 md:line-clamp-none">
                   {member.bio}
                 </p>
                 <div
-                  className="h-[1px] w-6 transition-all duration-700 group-hover:w-12 mt-1"
+                  className="h-[1px] w-4 md:w-6 transition-all duration-700 group-hover:w-8 md:group-hover:w-12 mt-1"
                   style={{ background: '#d2e6ff', opacity: 0.35 }}
                 />
               </div>

@@ -38,7 +38,7 @@ export default function EventSchedule() {
   return (
     <section
       id="schedule"
-      className="relative w-full bg-black section-grain py-36 px-6 lg:px-20 overflow-hidden"
+      className="relative w-full bg-black section-grain py-6 lg:py-36 px-6 lg:px-20 overflow-hidden"
     >
       <div className="absolute top-0 left-0 w-full h-px bg-white/5" />
 
@@ -94,13 +94,6 @@ export default function EventSchedule() {
               </div>
             </div>
           ))}
-        </div>
-
-        <div className="flex justify-between items-center opacity-25">
-          <div className="flex gap-3">
-            {[1, 2, 3].map((i) => <div key={i} className="w-10 h-px bg-white" />)}
-          </div>
-          <span className="font-outfit text-[8px] uppercase tracking-[0.7em] text-white font-medium">End of Assembly Day 01</span>
         </div>
       </div>
     </section>
