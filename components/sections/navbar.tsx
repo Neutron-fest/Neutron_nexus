@@ -84,7 +84,7 @@ export default function Navbar() {
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 1, duration: 0.6 }}
             onClick={() => window.open(SUBMISSION_URL, '_blank')}
-            className="relative font-outfit text-[10px] px-7 py-2.5 border border-white/15 text-white/70 hover:text-[#080808] hover:bg-white hover:border-white transition-all duration-500 uppercase tracking-[0.25em] font-semibold overflow-hidden group"
+            className="relative font-outfit text-[10px] px-7 py-2.5 border border-white/15 text-white/70 bg-black hover:text-[#080808] hover:bg-white hover:border-white transition-all duration-500 uppercase tracking-[0.25em] font-semibold overflow-hidden group"
           >
             <span className="relative z-10">Submit Project</span>
           </motion.button>

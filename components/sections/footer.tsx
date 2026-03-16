@@ -1,118 +1,100 @@
-'use client'
-
 import React from 'react'
+import Link from 'next/link'
 import { motion } from 'framer-motion'
 
-const SUBMISSION_URL = 'https://jasper-crest-d0c.notion.site/32305ae3df3380508209ec1f3b1511a1'
-
-const navLinks = [
-  { label: 'Assembly Vision', href: '#vision' },
-  { label: 'Key Advantages', href: '#highlights' },
-  { label: 'Advisory Panel', href: '#panel' },
-  { label: 'Active Ventures', href: '#grid' },
-  { label: 'Contact', href: '#contact' },
-]
-
 export default function Footer() {
-  const handleNav = (href: string) => {
-    const el = document.querySelector(href)
-    if (el) el.scrollIntoView({ behavior: 'smooth' })
-  }
-
   return (
-    <footer className="relative w-full bg-[#0a0a0a] section-grain pt-36 pb-14 px-6 lg:px-20 overflow-hidden border-t border-white/[0.05]">
-      <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        <span className="absolute -bottom-20 left-1/2 -translate-x-1/2 font-outfit font-black text-[32vw] text-white/[0.018] uppercase select-none leading-none tracking-tighter">
-          NEXUS
-        </span>
-      </div>
+    <footer className="relative w-full bg-[#020305] section-grain pt-32 px-6 lg:px-20 flex flex-col min-h-[90vh] justify-between border-t overflow-hidden" style={{ borderColor: 'rgba(210,230,255,0.05)' }}>
+      
+      {/* Subtle background glow */}
+      <div className="absolute top-0 right-0 w-[500px] h-[500px] pointer-events-none"
+        style={{ background: 'radial-gradient(ellipse 50% 50% at 80% 20%, rgba(140,200,255,0.03) 0%, transparent 70%)' }} />
+      <div className="absolute bottom-0 left-0 w-[600px] h-[600px] pointer-events-none"
+        style={{ background: 'radial-gradient(ellipse 50% 50% at 20% 80%, rgba(140,200,255,0.02) 0%, transparent 70%)' }} />
 
-      <div className="relative z-10 max-w-7xl mx-auto flex flex-col gap-28">
-        <div className="flex flex-col lg:flex-row justify-between gap-20 lg:gap-40">
-          <div className="lg:max-w-md space-y-12">
-            <div className="space-y-3">
-              <h2 className="font-outfit font-black text-[2rem] tracking-tight uppercase text-white leading-tight">
-                Neutron Nexus
-              </h2>
-              <p className="font-serif italic text-[11px] text-white/25 tracking-[0.15em]">
-                Innovation Assembly — 2026 Cycle
-              </p>
-            </div>
-
-            <p className="font-serif italic text-[1rem] text-white/35 leading-relaxed max-w-sm">
-              The high-fidelity assembly floor for startup founders. Bridging ingenuity with global industrial scale.
-            </p>
-
-            <div className="flex flex-col gap-0 border-t border-white/[0.05] pt-10 max-w-xs">
-              {[
-                { label: 'Regional Node', value: 'Delhi NCR — India' },
-                { label: 'Protocol', value: 'Assembly v4.0 Active' },
-              ].map((item) => (
-                <div key={item.label} className="flex justify-between py-5 border-b border-white/[0.04]">
-                  <span className="font-outfit text-[9px] uppercase tracking-[0.4em] text-white/20 font-medium">{item.label}</span>
-                  <span className="font-serif italic text-[12px] text-white/45">{item.value}</span>
-                </div>
-              ))}
-            </div>
-
-            <motion.button
-              whileHover={{ scale: 1.015 }}
-              whileTap={{ scale: 0.985 }}
-              onClick={() => window.open(SUBMISSION_URL, '_blank')}
-              className="group relative flex items-center gap-8 bg-white px-10 py-5 overflow-hidden transition-all duration-500"
-            >
-              <div className="absolute inset-0 bg-[#0a0a0a] origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-500" />
-              <span className="relative z-10 font-outfit font-black text-[11px] uppercase tracking-[0.3em] text-[#0a0a0a] group-hover:text-white transition-colors duration-300">
-                Submit Project
-              </span>
-              <span className="relative z-10 font-outfit text-[11px] text-[#0a0a0a] group-hover:text-white transition-all duration-300 group-hover:translate-x-1">
-                →
-              </span>
-            </motion.button>
-          </div>
-
-          <div className="space-y-10">
-            <span className="font-outfit text-[10px] uppercase tracking-[0.6em] text-white/20 font-medium block">
-              Strategic Directives
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16 lg:gap-8 z-10 w-full max-w-[1600px] mx-auto">
+        
+        {/* Studio Info */}
+        <div className="flex flex-col gap-6 lg:col-span-2 pr-0 lg:pr-24">
+          <Link href="/" className="flex flex-col gap-0.5 group w-fit">
+            <span className="font-outfit font-black text-[14px] tracking-[0.25em] uppercase leading-none text-white group-hover:text-[#d2e6ff] transition-colors duration-500">
+              Neutron Nexus
             </span>
-            <nav className="flex flex-col">
-              {navLinks.map((link, i) => (
-                <motion.button
-                  key={link.label}
-                  initial={{ opacity: 0, x: -10 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: i * 0.08 }}
-                  onClick={() => handleNav(link.href)}
-                  className="group flex items-center justify-between py-5 border-b border-white/[0.05] hover:border-white/15 transition-all duration-300 cursor-pointer text-left"
-                >
-                  <div className="flex items-center gap-4">
-                    <span className="font-serif italic text-[10px] text-white/20">0{i + 1}</span>
-                    <span className="font-outfit font-semibold text-[12px] text-white/40 group-hover:text-white/90 transition-colors duration-300 uppercase tracking-[0.15em]">
-                      {link.label}
-                    </span>
-                  </div>
-                  <span className="text-white/10 group-hover:text-white/40 transition-colors duration-300">→</span>
-                </motion.button>
-              ))}
-            </nav>
+            <span className="font-serif text-[10px] italic tracking-widest text-white/30 group-hover:text-white/50 transition-colors duration-500">
+              Innovation Day 2026
+            </span>
+          </Link>
+          <p className="font-serif italic text-[1.05rem] leading-relaxed text-white/40 max-w-sm mt-4">
+            The high-fidelity assembly floor for startup founders, bridging ingenuity with global industrial scale.
+          </p>
+        </div>
+
+        {/* Connect Links */}
+        <div className="flex flex-col gap-8">
+          <span className="font-outfit text-[9px] uppercase tracking-[0.6em] font-medium" style={{ color: 'rgba(180,215,255,0.5)' }}>
+            Connect
+          </span>
+          <div className="flex flex-col gap-4">
+            <a href="mailto:hello@neutronnexus.com" className="group flex items-center gap-4 w-fit">
+              <span className="font-outfit text-[13px] text-white/60 group-hover:text-white transition-colors duration-300">
+                hello@neutronnexus.com
+              </span>
+              <span className="text-[10px] text-white/0 group-hover:text-[#d2e6ff] -translate-x-2 group-hover:translate-x-0 transition-all duration-300">↗</span>
+            </a>
+            {['Instagram', 'LinkedIn', 'Twitter (X)'].map((social) => (
+              <a key={social} href="#" className="group flex items-center gap-4 w-fit">
+                <span className="font-outfit text-[13px] text-white/60 group-hover:text-white transition-colors duration-300">
+                  {social}
+                </span>
+                <span className="text-[10px] text-white/0 group-hover:text-[#d2e6ff] -translate-x-2 group-hover:translate-x-0 transition-all duration-300">↗</span>
+              </a>
+            ))}
           </div>
         </div>
 
-        <div className="border-t border-white/[0.04] pt-10 flex flex-col sm:flex-row justify-between items-center gap-7">
-          <p className="font-outfit text-[9px] text-white/18 uppercase tracking-[0.4em] font-medium">
-            © 2026 Neutron Nexus — All Rights Reserved
-          </p>
-          <div className="flex items-center gap-8">
-            <div className="flex items-center gap-3 opacity-30">
-              <span className="relative flex h-1.5 w-1.5">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-60" />
-                <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-white" />
-              </span>
-              <span className="font-outfit text-[9px] uppercase tracking-[0.3em] text-white font-medium">System Live</span>
-            </div>
-            <span className="font-serif italic text-[11px] text-white/15 select-none">Where Ideas Collide</span>
+        {/* Navigation Links */}
+        <div className="flex flex-col gap-8">
+          <span className="font-outfit text-[9px] uppercase tracking-[0.6em] font-medium" style={{ color: 'rgba(180,215,255,0.5)' }}>
+            Navigation
+          </span>
+          <div className="flex flex-col gap-4">
+            {[
+              { label: 'Assembly Vision', href: '#vision' },
+              { label: 'Key Advantages', href: '#highlights' },
+              { label: 'Advisory Panel', href: '#panel' },
+              { label: 'Active Projects', href: '#grid' }
+            ].map((link) => (
+              <Link key={link.label} href={link.href} className="group flex items-center gap-4 w-fit">
+                <span className="font-outfit text-[13px] text-white/60 group-hover:text-white transition-colors duration-300">
+                  {link.label}
+                </span>
+              </Link>
+            ))}
           </div>
+        </div>
+      </div>
+
+      {/* Massive Typography Bottom */}
+      <div className="w-full mt-auto pt-24 flex flex-col items-center z-10 relative">
+        
+        {/* Bottom Bar moved up above the hidden text */}
+        <div className="w-full max-w-[1600px] mx-auto flex flex-col md:flex-row justify-between items-center mb-10 pb-4 border-b border-white/5 text-white/30 font-outfit text-[9px] uppercase tracking-[0.3em] gap-6 z-20">
+          <span>© 2026 Neutron Nexus. All rights reserved.</span>
+          <div className="flex items-center gap-8">
+            <Link href="#" className="hover:text-white/70 transition-colors">Privacy Policy</Link>
+            <Link href="#" className="hover:text-white/70 transition-colors">Terms of Service</Link>
+          </div>
+        </div>
+
+        <div className="w-full relative flex justify-center items-center leading-none tracking-tighter select-none pointer-events-none pb-[4vw] -mb-[8vw]">
+          <h1 className="absolute font-serif italic font-light text-transparent bg-clip-text bg-linear-to-t from-[#d2e6ff]/5 to-[#d2e6ff]/40 w-full text-center z-0 translate-y-[6vw]"
+              style={{ fontSize: 'clamp(8rem, 28vw, 36rem)' }}>
+            NEXUS
+          </h1>
+          <h1 className="relative font-outfit font-black uppercase text-transparent bg-clip-text bg-linear-to-b from-white/90 to-white/10 w-full text-center mb-20 z-10"
+              style={{ fontSize: 'clamp(6rem, 17vw, 20rem)' }}>
+            NEUTRON
+          </h1>
         </div>
       </div>
     </footer>

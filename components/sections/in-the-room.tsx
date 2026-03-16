@@ -7,7 +7,7 @@ const videos = [
   { id: 1, src: 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerFun.mp4', title: 'Architecture Session' },
   { id: 2, src: 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerFun.mp4', title: 'Strategy Briefing' },
   { id: 3, src: 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerFun.mp4', title: 'Development Sprint' },
-  { id: 4, src: 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerFun.mp4', title: 'Partner Alignment' },
+  { id: 4, src: 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerFun.mp4', title: 'Project Alignment' },
   { id: 5, src: 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerFun.mp4', title: 'System Design' },
   { id: 6, src: 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerFun.mp4', title: 'Nexus Integration' },
   { id: 7, src: 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerFun.mp4', title: 'Core Validation' },
@@ -120,7 +120,7 @@ export default function InTheRoom() {
             transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
             className="font-outfit font-black text-[clamp(2.5rem,6vw,5rem)] leading-[0.9] text-white uppercase tracking-tight"
           >
-            Be In<br />
+            Experience<br />
             <span className="font-serif italic font-normal text-white/20">The Room.</span>
           </motion.h2>
         </div>

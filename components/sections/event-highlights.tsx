@@ -40,7 +40,7 @@ export default function EventHighlights() {
       id="highlights"
       className="relative w-full bg-black section-grain py-36 px-6 lg:px-20 overflow-hidden"
     >
-      <div className="absolute top-0 left-0 w-full h-px bg-white/[0.05]" />
+      <div className="absolute top-0 left-0 w-full h-px bg-white/5" />
 
       <div className="relative z-10 max-w-7xl mx-auto flex flex-col gap-24">
         <div className="flex flex-col gap-10">
@@ -51,8 +51,8 @@ export default function EventHighlights() {
             transition={{ duration: 0.8 }}
             className="flex items-center gap-5"
           >
-            <div className="h-px w-10 bg-white/30" />
-            <span className="font-outfit text-[10px] uppercase tracking-[0.5em] text-white/35 font-medium">
+            <div className="h-px w-10" style={{ background: '#d2e6ff', opacity: 0.35 }} />
+            <span className="font-outfit text-[10px] uppercase tracking-[0.5em] font-medium" style={{ color: 'rgba(210,230,255,0.45)' }}>
               Key Advantages
             </span>
           </motion.div>
@@ -65,7 +65,7 @@ export default function EventHighlights() {
             className="font-outfit font-black text-[clamp(3rem,8vw,7rem)] leading-[0.92] text-white uppercase tracking-tight"
           >
             Assembly<br />
-            <span className="font-serif italic font-normal text-white/25">Highlights.</span>
+            <span className="font-serif italic font-normal text-[#d2e6ff]">Highlights.</span>
           </motion.h2>
         </div>
 
@@ -73,10 +73,11 @@ export default function EventHighlights() {
           {highlights.map((item) => (
             <div
               key={item.index}
-              className="highlight-row group flex flex-col sm:flex-row gap-6 sm:gap-12 py-10 border-t border-white/[0.05] hover:border-white/10 transition-all duration-500 cursor-default"
+              className="highlight-row group flex flex-col sm:flex-row gap-6 sm:gap-12 py-10 border-t transition-all duration-500 cursor-default"
+              style={{ borderColor: 'rgba(210,230,255,0.06)' }}
             >
               <div className="flex items-start gap-10 sm:w-80 shrink-0">
-                <span className="font-serif italic text-[11px] text-white/20 pt-1 w-8 shrink-0">{item.index}</span>
+                <span className="font-serif italic text-[11px] pt-1 w-8 shrink-0" style={{ color: 'rgba(210,230,255,0.25)' }}>{item.index}</span>
                 <div className="space-y-1">
                   <span className="font-outfit text-[9px] uppercase tracking-[0.5em] text-white/25 block font-medium">{item.label}</span>
                   <h3 className="font-outfit font-black text-[1.2rem] text-white uppercase tracking-tight group-hover:text-white transition-colors leading-tight">{item.title}</h3>
@@ -85,7 +86,10 @@ export default function EventHighlights() {
               <p className="font-serif italic text-[0.92rem] text-white/35 leading-relaxed sm:max-w-lg sm:pt-5">
                 {item.description}
               </p>
-              <div className="hidden sm:flex items-center ml-auto text-white/10 group-hover:text-white/40 transition-colors duration-500 self-center text-xl">
+              <div className="hidden sm:flex items-center ml-auto transition-colors duration-500 self-center text-xl" style={{ color: 'rgba(210,230,255,0.08)' }}
+                onMouseEnter={(e) => (e.currentTarget.style.color = 'rgba(210,230,255,0.5)')}
+                onMouseLeave={(e) => (e.currentTarget.style.color = 'rgba(210,230,255,0.08)')}
+              >
                 →
               </div>
             </div>
