@@ -25,7 +25,6 @@ export default function Home() {
       <MentorsJudges />
       <EventSchedule />
       <ProjectShowcase />
-      <LinkPreviewSection />
       <Contact />
       <Footer />
     </main>
