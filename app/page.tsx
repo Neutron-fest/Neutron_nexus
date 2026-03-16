@@ -14,14 +14,14 @@ import Footer from '@/components/sections/footer'
 
 export default function Home() {
   return (
-    <main className="w-full overflow-x-hidden bg-black">
+    <main className="w-full bg-black">
       <div className="grain-overlay" aria-hidden="true" />
       <Navbar />
       <Hero />
       <About />
       <LinkPreviewSection />
       <EventHighlights />
-      {/* <Partners /> */}
+      <Partners />
       <MentorsJudges />
       <EventSchedule />
       <ProjectShowcase />

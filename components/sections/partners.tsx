@@ -111,7 +111,7 @@ export default function Partners() {
 
       <div
         ref={stickyRef}
-        className="sticky top-0 w-full overflow-hidden"
+        className="sticky top-0 w-full overflow-hidden z-10"
         style={{ height: '100vh' }}
       >
         <div className="absolute inset-0 pointer-events-none">

@@ -56,8 +56,8 @@ const SiriOrb: React.FC<SiriOrbProps> = ({
 
   const finalColors = { ...defaultColors, ...colors };
 
-  // Extract numeric value from size for calculations
-  const sizeValue = Number.parseInt(size.replace("px", ""), 10);
+  // Extract numeric value from size for calculations. Fallback to 200 if parsing fails (e.g. clamp())
+  const sizeValue = Number.parseInt(size.replace(/[^0-9]/g, ""), 10) || 200;
 
   // Responsive calculations based on size
   const blurAmount =
