@@ -1,10 +1,10 @@
 import type { Metadata } from 'next'
-import { Orbitron, IBM_Plex_Mono } from 'next/font/google'
+import { Outfit } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
+import SmoothScroll from '@/components/smooth-scroll'
 import './globals.css'
 
-const orbitron = Orbitron({ subsets: ['latin'], variable: '--font-orbitron' })
-const ibmPlexMono = IBM_Plex_Mono({ subsets: ['latin'], weight: '400', variable: '--font-ibm-plex' })
+const outfit = Outfit({ subsets: ['latin'], variable: '--font-outfit', display: 'swap' })
 
 export const metadata: Metadata = {
   title: 'Neutron Nexus — Innovation Day 2026',
@@ -17,9 +17,16 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className={`${orbitron.variable} ${ibmPlexMono.variable}`}>
-      <body className="font-sans antialiased bg-neutral-950">
-        {children}
+    <html lang="en" className={`${outfit.variable}`}>
+      <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,100..900;1,100..900&family=Outfit:wght@100..900&display=swap" rel="stylesheet" />
+      </head>
+      <body className="font-outfit antialiased bg-[#080808]">
+        <SmoothScroll>
+          {children}
+        </SmoothScroll>
         <Analytics />
       </body>
     </html>

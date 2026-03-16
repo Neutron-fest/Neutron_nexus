@@ -1,120 +1,108 @@
 'use client'
 
-import React from 'react'
+import React, { useEffect } from 'react'
 import { motion } from 'framer-motion'
-import { Clock, MapPin } from 'lucide-react'
+import gsap from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
+
+gsap.registerPlugin(ScrollTrigger)
 
 const schedule = [
-    {
-        time: "08:00 AM",
-        title: "Opening Keynote",
-        description: "Executive vision and inauguration of the 2026 Innovation Assembly.",
-        location: "Main Auditorium"
-    },
-    {
-        time: "10:30 AM",
-        title: "The Foundry Floor",
-        description: "Intensive building session. Founders moving from logic to prototype.",
-        location: "Innovation Wing"
-    },
-    {
-        time: "01:00 PM",
-        title: "Executive Luncheon",
-        description: "Curated networking for founders, mentors, and industry operators.",
-        location: "Sky Lounge"
-    },
-    {
-        time: "02:30 PM",
-        title: "Strategic Pivots",
-        description: "Mid-day evaluation and mentor feedback loops.",
-        location: "Strategy Room B"
-    },
-    {
-        time: "06:00 PM",
-        title: "The Final Pitch",
-        description: "High-stakes presentation of market-ready prototypes to industry titans.",
-        location: "Main Auditorium"
-    },
-    {
-        time: "08:30 PM",
-        title: "Award Ceremony",
-        description: "Recognition of top-tier ventures and closing ceremony.",
-        location: "Grand Ballroom"
-    }
+  { time: '08:00', period: 'AM', title: 'Opening Keynote', description: 'Executive vision and inauguration of the 2026 Innovation Assembly.', venue: 'Main Auditorium' },
+  { time: '10:30', period: 'AM', title: 'The Foundry Floor', description: 'Intensive building session — founders moving from logic to high-fidelity prototype.', venue: 'Innovation Wing' },
+  { time: '01:00', period: 'PM', title: 'Executive Luncheon', description: 'Curated networking for founders, mentors, and industry operators.', venue: 'Sky Lounge' },
+  { time: '02:30', period: 'PM', title: 'Strategic Pivots', description: 'Mid-day evaluation sessions and mentor feedback loops for rapid iteration.', venue: 'Strategy Room B' },
+  { time: '06:00', period: 'PM', title: 'The Final Pitch', description: 'High-stakes presentation of market-ready prototypes to industry titans.', venue: 'Main Auditorium' },
+  { time: '08:30', period: 'PM', title: 'Award Ceremony', description: 'Recognition of top-tier ventures and official closing ceremony.', venue: 'Grand Ballroom' },
 ]
 
 export default function EventSchedule() {
-    return (
-        <section
-            id="schedule"
-            className="relative min-h-screen w-full bg-[#0a0a0a] py-32 px-6 lg:px-20"
-        >
-            <div className="relative z-10 max-w-7xl mx-auto">
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      gsap.fromTo(
+        '.schedule-item',
+        { x: -30, opacity: 0 },
+        {
+          x: 0,
+          opacity: 1,
+          stagger: 0.12,
+          duration: 0.9,
+          ease: 'power3.out',
+          scrollTrigger: { trigger: '.schedule-list', start: 'top 80%' },
+        }
+      )
+    })
+    return () => ctx.revert()
+  }, [])
 
-                {/* Header */}
-                <div className="space-y-8 mb-24">
-                    <motion.div
-                        initial={{ opacity: 0, x: -20 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        viewport={{ once: true }}
-                        className="flex items-center gap-6"
-                    >
-                        <div className="h-px w-16 bg-white/40" />
-                        <span className="font-mono text-[10px] text-white/40 uppercase tracking-[0.6em] font-bold">Assembly Timeline</span>
-                    </motion.div>
+  return (
+    <section
+      id="schedule"
+      className="relative w-full bg-black section-grain py-36 px-6 lg:px-20 overflow-hidden"
+    >
+      <div className="absolute top-0 left-0 w-full h-px bg-white/5" />
 
-                    <h2 className="font-orbitron font-black text-5xl lg:text-7xl leading-none text-white uppercase italic tracking-tighter">
-                        Operational <br />
-                        <span className="text-white/20">Schedule.</span>
-                    </h2>
+      <div className="relative z-10 max-w-7xl mx-auto flex flex-col gap-24">
+        <div className="flex flex-col gap-10">
+          <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="flex items-center gap-5"
+          >
+            <div className="h-px w-10 bg-white/30" />
+            <span className="font-outfit text-[10px] uppercase tracking-[0.5em] text-white/35 font-medium">
+              Assembly Timeline
+            </span>
+          </motion.div>
+
+          <motion.h2
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
+            className="font-outfit font-black text-[clamp(3rem,8vw,7rem)] leading-[0.92] text-white uppercase tracking-tight"
+          >
+            Operational<br />
+            <span className="font-serif italic font-normal text-white/25">Schedule.</span>
+          </motion.h2>
+        </div>
+
+        <div className="schedule-list flex flex-col">
+          {schedule.map((item, i) => (
+            <div
+              key={item.title}
+              className={`schedule-item group flex flex-col sm:flex-row gap-8 sm:items-center py-10 border-t border-white/5 hover:border-white/10 transition-all duration-500 ${i === schedule.length - 1 ? 'border-b border-white/5 hover:border-b-white/10' : ''}`}
+            >
+              <div className="shrink-0 sm:w-28">
+                <div className="flex items-baseline gap-1.5">
+                  <span className="font-outfit font-black text-[1.65rem] text-white leading-none tracking-tight">{item.time}</span>
+                  <span className="font-outfit text-[10px] text-white/30 uppercase tracking-widest font-medium">{item.period}</span>
                 </div>
+              </div>
 
-                {/* Schedule List */}
-                <div className="flex flex-col gap-1">
-                    {schedule.map((item, index) => (
-                        <motion.div
-                            key={index}
-                            initial={{ opacity: 0, x: -20 }}
-                            whileInView={{ opacity: 1, x: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ delay: index * 0.1, duration: 0.8 }}
-                            className="group relative grid grid-cols-1 lg:grid-cols-[200px_1fr_250px] items-center gap-10 py-10 border-t border-white/5 hover:bg-white/[0.02] transition-colors duration-500 px-6"
-                        >
-                            {/* Time */}
-                            <div className="flex items-center gap-4">
-                                <Clock size={16} className="text-white/20 group-hover:text-white transition-colors" />
-                                <span className="font-orbitron text-xl font-bold text-white tracking-tight">{item.time}</span>
-                            </div>
+              <div className="h-px w-12 bg-white/10 hidden sm:block shrink-0 group-hover:w-20 group-hover:bg-white/30 transition-all duration-500" />
 
-                            {/* Title & Description */}
-                            <div className="space-y-2">
-                                <h3 className="font-orbitron text-xl font-extrabold text-white uppercase italic group-hover:translate-x-2 transition-transform duration-500">{item.title}</h3>
-                                <p className="text-sm text-white/40 font-light leading-relaxed max-w-xl">
-                                    {item.description}
-                                </p>
-                            </div>
+              <div className="flex-1 space-y-2">
+                <h3 className="font-outfit font-black text-[1.15rem] text-white uppercase tracking-tight group-hover:translate-x-1 transition-transform duration-400">{item.title}</h3>
+                <p className="font-serif italic text-[0.9rem] text-white/35 leading-relaxed max-w-lg">{item.description}</p>
+              </div>
 
-                            {/* Location */}
-                            <div className="flex items-center justify-end gap-3 text-right">
-                                <span className="font-mono text-[9px] uppercase tracking-[0.3em] text-white/20">{item.location}</span>
-                                <MapPin size={14} className="text-white/10" />
-                            </div>
-
-                            {/* Side Accent */}
-                            <div className="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-0 bg-white group-hover:h-1/2 transition-all duration-500" />
-                        </motion.div>
-                    ))}
-                    <div className="border-t border-white/5" />
-                </div>
-
-                {/* Status Line */}
-                <div className="mt-20 flex justify-between items-center opacity-30">
-                    <div className="flex gap-2">
-                        {[1, 2, 3].map(i => <div key={i} className="w-12 h-px bg-white" />)}
-                    </div>
-                    <span className="font-mono text-[8px] uppercase tracking-[0.8em]">End of Assembly // Day 01</span>
-                </div>
+              <div className="shrink-0 sm:text-right">
+                <span className="font-outfit text-[9px] uppercase tracking-[0.4em] text-white/20 font-medium">{item.venue}</span>
+              </div>
             </div>
-        </section>
-    )
+          ))}
+        </div>
+
+        <div className="flex justify-between items-center opacity-25">
+          <div className="flex gap-3">
+            {[1, 2, 3].map((i) => <div key={i} className="w-10 h-px bg-white" />)}
+          </div>
+          <span className="font-outfit text-[8px] uppercase tracking-[0.7em] text-white font-medium">End of Assembly Day 01</span>
+        </div>
+      </div>
+    </section>
+  )
 }

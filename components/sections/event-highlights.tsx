@@ -1,120 +1,97 @@
 'use client'
 
-import React from 'react'
+import React, { useEffect } from 'react'
 import { motion } from 'framer-motion'
-import { Zap, Users, Trophy, Rocket, Globe, Shield } from 'lucide-react'
+import gsap from 'gsap'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
+
+gsap.registerPlugin(ScrollTrigger)
 
 const highlights = [
-    {
-        icon: Rocket,
-        title: "10K Prize Pool",
-        description: "Substantial capital injections for top-performing ventures.",
-        label: "Incentive"
-    },
-    {
-        icon: Users,
-        title: "Expert Mentorship",
-        description: "Direct interaction with industry leaders and successful operators.",
-        label: "Network"
-    },
-    {
-        icon: Zap,
-        title: "12-Hour Sprint",
-        description: "High-intensity building environment for rapid prototyping.",
-        label: "Execution"
-    },
-    {
-        icon: Trophy,
-        title: "Venture Ready",
-        description: "Every outcome is designed for immediate commercial scalability.",
-        label: "Standard"
-    },
-    {
-        icon: Shield,
-        title: "IP Security",
-        description: "Rigorous standards for protecting founder vision and logic.",
-        label: "Protocol"
-    },
-    {
-        icon: Globe,
-        title: "Global Reach",
-        description: "Integration into world-wide innovation networks and nodes.",
-        label: "Scale"
-    }
+  { index: '01', label: 'Incentive', title: '₹10K Prize Pool', description: 'Substantial capital injections for top-performing ventures selected by the expert panel.' },
+  { index: '02', label: 'Network', title: 'Expert Mentorship', description: 'Direct interaction with industry leaders, successful operators, and seasoned builders.' },
+  { index: '03', label: 'Execution', title: '12-Hour Sprint', description: 'A high-intensity building environment engineered for rapid prototyping under pressure.' },
+  { index: '04', label: 'Standard', title: 'Venture Ready', description: 'Every outcome is designed for immediate commercial scalability and investor readiness.' },
+  { index: '05', label: 'Protocol', title: 'IP Security', description: 'Rigorous standards for protecting the founder vision, architecture, and creative logic.' },
+  { index: '06', label: 'Scale', title: 'Global Reach', description: 'Integration into worldwide innovation networks, venture nodes, and startup ecosystems.' },
 ]
 
 export default function EventHighlights() {
-    return (
-        <section
-            id="highlights"
-            className="relative min-h-screen w-full bg-[#0a0a0a] py-32 px-6 lg:px-20 overflow-hidden"
-        >
-            {/* Background Decorative */}
-            <div className="absolute inset-0 pointer-events-none">
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-white/[0.01] blur-[100px] rounded-full" />
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      gsap.fromTo(
+        '.highlight-row',
+        { y: 40, opacity: 0 },
+        {
+          y: 0,
+          opacity: 1,
+          stagger: 0.12,
+          duration: 0.9,
+          ease: 'power3.out',
+          scrollTrigger: { trigger: '.highlights-list', start: 'top 80%' },
+        }
+      )
+    })
+    return () => ctx.revert()
+  }, [])
+
+  return (
+    <section
+      id="highlights"
+      className="relative w-full bg-black section-grain py-36 px-6 lg:px-20 overflow-hidden"
+    >
+      <div className="absolute top-0 left-0 w-full h-px bg-white/[0.05]" />
+
+      <div className="relative z-10 max-w-7xl mx-auto flex flex-col gap-24">
+        <div className="flex flex-col gap-10">
+          <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="flex items-center gap-5"
+          >
+            <div className="h-px w-10 bg-white/30" />
+            <span className="font-outfit text-[10px] uppercase tracking-[0.5em] text-white/35 font-medium">
+              Key Advantages
+            </span>
+          </motion.div>
+
+          <motion.h2
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
+            className="font-outfit font-black text-[clamp(3rem,8vw,7rem)] leading-[0.92] text-white uppercase tracking-tight"
+          >
+            Assembly<br />
+            <span className="font-serif italic font-normal text-white/25">Highlights.</span>
+          </motion.h2>
+        </div>
+
+        <div className="highlights-list flex flex-col">
+          {highlights.map((item) => (
+            <div
+              key={item.index}
+              className="highlight-row group flex flex-col sm:flex-row gap-6 sm:gap-12 py-10 border-t border-white/[0.05] hover:border-white/10 transition-all duration-500 cursor-default"
+            >
+              <div className="flex items-start gap-10 sm:w-80 shrink-0">
+                <span className="font-serif italic text-[11px] text-white/20 pt-1 w-8 shrink-0">{item.index}</span>
+                <div className="space-y-1">
+                  <span className="font-outfit text-[9px] uppercase tracking-[0.5em] text-white/25 block font-medium">{item.label}</span>
+                  <h3 className="font-outfit font-black text-[1.2rem] text-white uppercase tracking-tight group-hover:text-white transition-colors leading-tight">{item.title}</h3>
+                </div>
+              </div>
+              <p className="font-serif italic text-[0.92rem] text-white/35 leading-relaxed sm:max-w-lg sm:pt-5">
+                {item.description}
+              </p>
+              <div className="hidden sm:flex items-center ml-auto text-white/10 group-hover:text-white/40 transition-colors duration-500 self-center text-xl">
+                →
+              </div>
             </div>
-
-            <div className="relative z-10 max-w-7xl mx-auto">
-                {/* Header */}
-                <div className="flex flex-col items-center text-center space-y-8 mb-32">
-                    <motion.div
-                        initial={{ opacity: 0, y: 10 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        className="flex items-center gap-4"
-                    >
-                        <div className="h-px w-8 bg-white/20" />
-                        <span className="font-mono text-[10px] text-white/40 uppercase tracking-[0.8em] font-bold">Key Advantages</span>
-                        <div className="h-px w-8 bg-white/20" />
-                    </motion.div>
-
-                    <h2 className="font-orbitron font-black text-5xl lg:text-7xl leading-none text-white uppercase italic tracking-tighter">
-                        Assembly <br />
-                        <span className="text-white/20">Highlights.</span>
-                    </h2>
-                </div>
-
-                {/* Highlights Grid */}
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-1">
-                    {highlights.map((item, index) => (
-                        <motion.div
-                            key={index}
-                            initial={{ opacity: 0, scale: 0.95 }}
-                            whileInView={{ opacity: 1, scale: 1 }}
-                            viewport={{ once: true }}
-                            transition={{ delay: index * 0.1, duration: 0.8 }}
-                            className="group relative p-12 border border-white/5 bg-white/[0.01] hover:bg-white/[0.03] transition-all duration-500 overflow-hidden"
-                        >
-                            <div className="space-y-8">
-                                <div className="flex items-center justify-between">
-                                    <div className="h-12 w-12 border border-white/10 flex items-center justify-center text-white/40 group-hover:text-white group-hover:border-white/20 transition-all duration-500">
-                                        <item.icon size={20} strokeWidth={1.5} />
-                                    </div>
-                                    <span className="font-mono text-[9px] uppercase tracking-[0.4em] text-white/20">{item.label}</span>
-                                </div>
-
-                                <div className="space-y-4">
-                                    <h3 className="font-orbitron text-xl font-extrabold text-white uppercase italic tracking-tight">{item.title}</h3>
-                                    <p className="text-[13px] leading-relaxed text-white/40 font-light">
-                                        {item.description}
-                                    </p>
-                                </div>
-                            </div>
-
-                            {/* Decorative Corner */}
-                            <div className="absolute bottom-0 right-0 w-8 h-8 opacity-0 group-hover:opacity-100 transition-opacity duration-700">
-                                <div className="absolute bottom-4 right-4 w-px h-8 bg-white/20" />
-                                <div className="absolute bottom-4 right-4 w-8 h-px bg-white/20" />
-                            </div>
-                        </motion.div>
-                    ))}
-                </div>
-
-                {/* Footer Hint */}
-                <div className="mt-32 border-t border-white/5 pt-12 flex flex-col items-center gap-6 opacity-20">
-                    <span className="font-mono text-[9px] text-white uppercase tracking-[0.5em] font-black">Innovation Assembly // Operational Standards</span>
-                </div>
-            </div>
-        </section>
-    )
+          ))}
+        </div>
+      </div>
+    </section>
+  )
 }
