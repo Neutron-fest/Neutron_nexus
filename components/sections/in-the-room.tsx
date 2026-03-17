@@ -3,19 +3,19 @@
 import React, { useRef, useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 
-const videos = [
-  { id: 1, src: 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerFun.mp4', title: 'Architecture Session' },
-  { id: 2, src: 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerFun.mp4', title: 'Strategy Briefing' },
-  { id: 3, src: 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerFun.mp4', title: 'Development Sprint' },
-  { id: 4, src: 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerFun.mp4', title: 'Project Alignment' },
-  { id: 5, src: 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerFun.mp4', title: 'System Design' },
-  { id: 6, src: 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerFun.mp4', title: 'Nexus Integration' },
-  { id: 7, src: 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerFun.mp4', title: 'Core Validation' },
-  { id: 8, src: 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerFun.mp4', title: 'Scale Planning' },
-  { id: 9, src: 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerFun.mp4', title: 'Executive Review' },
+const mediaItems = [
+  { id: 1, src: 'https://framerusercontent.com/images/GvUgnnDXPGMzgrW4YKoBR3ml4s.jpeg', title: 'Architecture Session' },
+  { id: 2, src: 'https://cdn.prod.website-files.com/62e8d2ea218fb7676b6892a6/6762d9cc7fb43118f36e1622_WhatsApp%20Image%202024-12-18%20at%2019.07.11_0ebdcbde.avif', title: 'Strategy Briefing' },
+  { id: 3, src: 'https://cdn.prod.website-files.com/62e8d2ea218fb7676b6892a6/6762d9cc35bb6b0be9675c94_WhatsApp%20Image%202024-12-18%20at%2019.13.21_5ac2a662.avif', title: 'Development Sprint' },
+  { id: 4, src: 'https://cdn.prod.website-files.com/62e8d2ea218fb7676b6892a6/682dbb092686e716bedae586_Instagram%20story%20-%201.avif', title: 'Project Alignment' },
+  { id: 5, src: 'https://framerusercontent.com/images/NHbREi0neBqFVZR4YmKshCoYmmo.png', title: 'System Design' },
+  { id: 6, src: 'https://framerusercontent.com/images/VHepD0DVmPuEirA3O79PPRPUIY.png', title: 'Nexus Integration' },
+  { id: 7, src: 'https://cdn.prod.website-files.com/62e8d2ea218fb7676b6892a6/6762d9cc3742cd17ee9c2335_WhatsApp%20Image%202024-12-18%20at%2019.13.48_72e85a55.avif', title: 'Core Validation' },
+  { id: 8, src: 'https://framerusercontent.com/images/cEYRaDtqXX3pEzNXzl24KJfjgM.jpg', title: 'Scale Planning' },
+  { id: 9, src: 'https://framerusercontent.com/images/rlw9qiY5xOrlXldiAKFZ24ziZc.jpg', title: 'Executive Review' },
 ]
 
-function VideoCard({ 
+function MediaCard({ 
   src, 
   title, 
   isActive, 
@@ -31,15 +31,16 @@ function VideoCard({
   onHoverEnd: () => void;
 }) {
   const videoRef = useRef<HTMLVideoElement>(null)
+  const isImage = /\.(jpeg|jpg|png|gif|webp|avif|svg)/i.test(src.split('?')[0])
 
   useEffect(() => {
-    if (isActive) {
+    if (!isImage && isActive) {
       videoRef.current?.play().catch(() => {})
-    } else {
+    } else if (!isImage) {
       videoRef.current?.pause()
       if (videoRef.current) videoRef.current.currentTime = 0
     }
-  }, [isActive])
+  }, [isActive, isImage])
 
   return (
     <motion.div
@@ -52,16 +53,24 @@ function VideoCard({
         zIndex: isActive ? 10 : 1,
       }}
       transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-      className="relative aspect-video rounded-xl overflow-hidden bg-neutral-900 cursor-none border border-white/5"
+      className="relative aspect-video rounded-xl overflow-hidden bg-neutral-900 border border-white/5"
     >
-      <video
-        ref={videoRef}
-        src={src}
-        loop
-        muted
-        playsInline
-        className="w-full h-full object-cover"
-      />
+      {isImage ? (
+        <img
+          src={src}
+          alt={title}
+          className="w-full h-full object-cover"
+        />
+      ) : (
+        <video
+          ref={videoRef}
+          src={src}
+          loop
+          muted
+          playsInline
+          className="w-full h-full object-cover"
+        />
+      )}
       <div className="absolute inset-x-0 bottom-0 p-4 bg-linear-to-t from-black/80 to-transparent flex flex-col justify-end">
         <motion.span 
           animate={{ opacity: isActive ? 1 : 0, y: isActive ? 0 : 10 }}
@@ -126,14 +135,14 @@ export default function InTheRoom() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-          {videos.map((v) => (
-            <VideoCard
-              key={v.id}
-              src={v.src}
-              title={v.title}
-              isActive={activeId === v.id}
+          {mediaItems.map((item) => (
+            <MediaCard
+              key={item.id}
+              src={item.src}
+              title={item.title}
+              isActive={activeId === item.id}
               isAnyActive={activeId !== null}
-              onHoverStart={() => setActiveId(v.id)}
+              onHoverStart={() => setActiveId(item.id)}
               onHoverEnd={() => setActiveId(null)}
             />
           ))}

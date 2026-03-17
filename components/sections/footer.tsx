@@ -43,7 +43,7 @@ export default function Footer() {
                 { label: 'WHO WE ARE', href: '#vision' },
                 { label: 'OUR PROCESS', href: '#highlights' },
                 { label: 'PROJECTS', href: '#grid' },
-                { label: 'SERVICES', href: '#panel' },
+                { label: 'OUR JUDGES', href: '#panel' },
                 { label: 'SCHEDULE', href: '#schedule' },
                 { label: 'CONTACT US', href: '#contact' }
               ].map((link) => (

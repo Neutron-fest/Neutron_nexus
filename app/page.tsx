@@ -43,14 +43,14 @@ export default function Home() {
             onClick={() => window.open(SUBMISSION_URL, '_blank')}
             className="font-outfit text-[10px] px-7 py-2.5 border border-sky-400/20 text-white bg-black hover:text-[#080808] hover:bg-sky-100 hover:border-sky-100 transition-all duration-500 uppercase tracking-[0.25em] font-semibold"
           >
-            Submit Project
+            Register Now
           </button>
         }
       />
       <Hero />
       <About />
       {/* <EventHighlights /> */}
-      <ProjectsHome />
+      {/* <ProjectsHome /> */}
       <MentorsJudges />
       <EventSchedule />
       <InTheRoom />

@@ -86,7 +86,7 @@ export default function Navbar() {
             onClick={() => window.open(SUBMISSION_URL, '_blank')}
             className="relative font-outfit text-[10px] px-7 py-2.5 border border-white/15 text-white/70 bg-black hover:text-[#080808] hover:bg-white hover:border-white transition-all duration-500 uppercase tracking-[0.25em] font-semibold overflow-hidden group"
           >
-            <span className="relative z-10">Submit Project</span>
+            <span className="relative z-10">Register Now</span>
           </motion.button>
 
           <div className="flex items-center gap-2.5">
@@ -131,7 +131,7 @@ export default function Navbar() {
               onClick={() => { setMenuOpen(false); window.open(SUBMISSION_URL, '_blank') }}
               className="font-outfit text-[10px] px-8 py-3.5 border border-white/15 text-white hover:bg-white hover:text-[#080808] transition-all duration-500 w-full text-center uppercase tracking-[0.3em] font-bold"
             >
-              Submit Project
+              Register Now
             </button>
           </li>
         </ul>

@@ -179,7 +179,7 @@ export default function SubmissionForm({ open = false, onOpenChange }: Submissio
       <div className="flex items-center justify-between px-6 py-4 border-b border-white/[0.06]">
         <div className="flex items-center gap-2">
           <span className="font-orbitron text-xs font-bold text-white tracking-widest">NEUTRON NEXUS</span>
-          <span className="font-ibm-plex text-[10px] text-neutral-600">/ Submit Project</span>
+          <span className="font-ibm-plex text-[10px] text-neutral-600">/ Register Now</span>
         </div>
         <div className="flex items-center gap-4">
           <span className="font-ibm-plex text-[11px] text-neutral-600 hidden sm:block">

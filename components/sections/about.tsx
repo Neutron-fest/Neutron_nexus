@@ -13,31 +13,31 @@ import { Plus } from 'lucide-react'
 const pillars = [
   {
     num: '01',
-    title: 'Accelerated Validation',
-    desc: 'Our framework verifies commercial viability at speed. From hypothesis to demonstration in a single high-stakes day.',
+    title: 'Innovation First Ecosystem',
+    desc: 'We create a dynamic environment where students turn ideas into real-world solutions through hands-on projects, startup building, and continuous experimentation.',
     image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80',
-    tag: 'Execution Speed',
+    tag: 'Build. Break. Innovate.',
   },
   {
     num: '02',
-    title: 'Executive Network',
-    desc: 'Direct access to a curated circle of mentors, operators, and early-stage capital — connections that act as force multipliers.',
+    title: 'Where Ideas Meet Execution',
+    desc: 'From startup pitches to working software and hardware prototypes, we bridge the gap between concepts and execution by enabling students to showcase, validate, and refine their ideas with expert feedback.',
     image: 'https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&q=80',
-    tag: 'Strategic Access',
+    tag: 'Ideas into Impact.',
   },
   {
     num: '03',
-    title: 'Standard of Excellence',
-    desc: 'Every project meets a rigorous criteria of innovation and execution. We define the standard for the next generation of builders.',
+    title: 'Community Driven Growth',
+    desc: 'We foster a collaborative culture where students, mentors, and industry experts connect, exchange ideas, and grow together through discussions, mentorship, and shared learning experiences.',
     image: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80',
-    tag: 'Rigorous Benchmarks',
+    tag: 'Build. Grow.',
   },
 ]
 
 const stats = [
-  { label: 'Active Ventures', value: 44, suffix: '+' },
+  { label: 'Startup Projects', value: 44, suffix: '+' },
   { label: 'Industry Nodes', value: 12, suffix: '+' },
-  { label: 'Tracks', value: 8, suffix: '+', prefix: '0' },
+  { label: 'Tracks', value: 8, suffix: '+'},
   { label: 'Network', value: 100, suffix: '%' },
 ]
 
@@ -345,7 +345,7 @@ export default function About() {
                 className="max-w-md space-y-6 border-l border-white/10 pl-6 md:pl-12"
               >
                 <p className="font-serif italic text-sm md:text-xl text-white/40 leading-relaxed">
-                  Neutron Nexus is not merely an event — it is a high-fidelity assembly. We merge the raw agility of a startup foundry with the strategic reach of a global launchpad.
+                  Neutron Nexus is not merely an event — but to build a unified platform that empowers students to innovate, showcase, and scale impactful ideas.
                 </p>
                 <div className="flex items-center gap-4">
                   <div className="w-8 h-px bg-white/10" />
@@ -389,7 +389,6 @@ export default function About() {
                 key={s.label}
                 label={s.label}
                 value={s.value}
-                prefix={s.prefix}
                 suffix={s.suffix}
               />
             ))}

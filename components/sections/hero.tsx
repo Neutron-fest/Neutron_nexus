@@ -72,7 +72,7 @@ export default function Hero() {
           className="mt-8 md:mt-12 max-w-2xl mx-auto flex flex-col items-center text-center"
         >
           <p className="text-[#f0ede8]/70 font-serif text-sm sm:text-base md:text-lg leading-relaxed italic max-w-xl">
-            [1] "A formidable visionary is one who sees beyond the horizon, crafting the future regardless of whatever obstacles stand in the way."
+            "A formidable visionary is one who sees beyond the horizon, crafting the future regardless of whatever obstacles stand in the way."
           </p>
           <p className="text-[#f0ede8]/40 font-outfit text-[10px] sm:text-xs mt-6 uppercase tracking-[0.3em] block">
             — The Scale of Ambition
@@ -92,7 +92,7 @@ export default function Hero() {
           </a>
           <a href='https://jasper-crest-d0c.notion.site/32305ae3df3380508209ec1f3b1511a1' target='_blank' className="w-full sm:w-auto">
             <button className="w-fit cursor-pointer sm:w-auto px-8 py-3.5 border border-[#f0ede8]/40 hover:border-[#f0ede8] text-white hover:text-black font-outfit text-sm font-semibold tracking-wider uppercase rounded-4xl hover:bg-white hover:scale-[1.03] transition-all duration-300 shadow-[0_0_40px_rgba(255,255,255,0.05)] hover:shadow-[0_0_60px_rgba(255,255,255,0.2)]">
-              Submit Project
+              Register Now
             </button>
           </a>
         </motion.div>
