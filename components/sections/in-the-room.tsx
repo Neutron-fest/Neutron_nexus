@@ -4,15 +4,15 @@ import React, { useRef, useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 
 const mediaItems = [
-  { id: 1, src: 'https://framerusercontent.com/images/GvUgnnDXPGMzgrW4YKoBR3ml4s.jpeg', title: 'Architecture Session' },
+  { id: 1, src: 'https://cdn.prod.website-files.com/62e8d2ea218fb7676b6892a6/682dbca62f1ae9a166f26454_Instagram%20story%20-%202-1.avif', title: 'Architecture Session' },
   { id: 2, src: 'https://cdn.prod.website-files.com/62e8d2ea218fb7676b6892a6/6762d9cc7fb43118f36e1622_WhatsApp%20Image%202024-12-18%20at%2019.07.11_0ebdcbde.avif', title: 'Strategy Briefing' },
   { id: 3, src: 'https://cdn.prod.website-files.com/62e8d2ea218fb7676b6892a6/6762d9cc35bb6b0be9675c94_WhatsApp%20Image%202024-12-18%20at%2019.13.21_5ac2a662.avif', title: 'Development Sprint' },
   { id: 4, src: 'https://cdn.prod.website-files.com/62e8d2ea218fb7676b6892a6/682dbb092686e716bedae586_Instagram%20story%20-%201.avif', title: 'Project Alignment' },
-  { id: 5, src: 'https://framerusercontent.com/images/NHbREi0neBqFVZR4YmKshCoYmmo.png', title: 'System Design' },
-  { id: 6, src: 'https://framerusercontent.com/images/VHepD0DVmPuEirA3O79PPRPUIY.png', title: 'Nexus Integration' },
+  { id: 5, src: 'https://ik.imagekit.io/yatharth/image.png', title: 'System Design' },
+  { id: 6, src: 'https://cdn.prod.website-files.com/62e8d2ea218fb7676b6892a6/682dbbcb747e94b97157e791_Instagram%20story%20-%202.avif', title: 'Nexus Integration' },
   { id: 7, src: 'https://cdn.prod.website-files.com/62e8d2ea218fb7676b6892a6/6762d9cc3742cd17ee9c2335_WhatsApp%20Image%202024-12-18%20at%2019.13.48_72e85a55.avif', title: 'Core Validation' },
-  { id: 8, src: 'https://framerusercontent.com/images/cEYRaDtqXX3pEzNXzl24KJfjgM.jpg', title: 'Scale Planning' },
-  { id: 9, src: 'https://framerusercontent.com/images/rlw9qiY5xOrlXldiAKFZ24ziZc.jpg', title: 'Executive Review' },
+  { id: 8, src: 'https://cdn.prod.website-files.com/62e8d2ea218fb7676b6892a6/682dbb0a0f407512a2700f57_Instagram%20story%20-%202-1.avif', title: 'Scale Planning' },
+  { id: 9, src: 'https://cdn.prod.website-files.com/62e8d2ea218fb7676b6892a6/682dbb0ad5a5528c9855e189_Instagram%20story%20-%201-1.avif', title: 'Executive Review' },
 ]
 
 function MediaCard({ 
