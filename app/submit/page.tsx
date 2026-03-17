@@ -218,9 +218,9 @@ export default function SubmitPage() {
   return (
     <div className="relative min-h-screen overflow-hidden bg-[#020306] font-ibm-plex text-white">
       <div className="pointer-events-none absolute inset-0 z-0 opacity-40">
-        <div className="absolute left-0 top-0 h-px w-full bg-gradient-to-r from-transparent via-white/5 to-transparent" />
-        <div className="absolute bottom-0 left-0 h-px w-full bg-gradient-to-r from-transparent via-cyan-500/20 to-transparent" />
-        <span className="absolute -right-16 top-20 select-none font-orbitron text-[18vw] font-black italic text-white/[0.015]">
+        <div className="absolute left-0 top-0 h-px w-full bg-linear-to-r from-transparent via-white/5 to-transparent" />
+        <div className="absolute bottom-0 left-0 h-px w-full bg-linear-to-r from-transparent via-cyan-500/20 to-transparent" />
+        <span className="absolute -right-16 top-20 select-none font-orbitron text-[18vw] font-black italic text-white/1.5">
           SUBMIT
         </span>
         <div
@@ -236,7 +236,7 @@ export default function SubmitPage() {
         <div className="mx-auto flex w-full max-w-7xl items-center justify-between gap-4 border-b border-white/5 px-6 py-4 lg:px-10">
           <button
             onClick={() => router.push('/')}
-            className="group inline-flex items-center gap-3 rounded-sm border border-white/10 bg-white/[0.01] px-4 py-2"
+            className="group inline-flex items-center gap-3 rounded-sm border border-white/10 bg-white/1 px-4 py-2"
           >
             <svg className="h-4 w-4 text-slate-500 transition-colors group-hover:text-cyan-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
               <path strokeLinecap="round" strokeLinejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18" />
@@ -246,13 +246,13 @@ export default function SubmitPage() {
             </span>
           </button>
 
-          <div className="hidden items-center gap-3 rounded-sm border border-white/10 bg-white/[0.01] px-4 py-2 text-[10px] font-mono uppercase tracking-[0.35em] text-slate-500 sm:inline-flex">
+          <div className="hidden items-center gap-3 rounded-sm border border-white/10 bg-white/1 px-4 py-2 text-[10px] font-mono uppercase tracking-[0.35em] text-slate-500 sm:inline-flex">
             <Radar className="h-3.5 w-3.5 text-cyan-500" />
             {submitted ? 'Transmission Complete' : `Step ${current + 1} of ${STEPS.length}`}
           </div>
         </div>
 
-        <div className="h-[2px] shrink-0 bg-white/[0.04]">
+        <div className="h-[2px] shrink-0 bg-white/4">
           <div className="h-full bg-cyan-400 transition-[width] duration-500 ease-out" style={{ width: `${progress}%` }} />
         </div>
 
@@ -262,7 +262,7 @@ export default function SubmitPage() {
               <p className="mb-6 text-[10px] font-mono uppercase tracking-[0.4em] text-slate-600">Launch checklist</p>
               <ul className="space-y-2.5">
                 {STEPS.map((s, i) => (
-                  <li key={s.id} className="flex items-center gap-3 rounded-sm border border-white/5 bg-white/[0.01] px-3 py-2.5">
+                  <li key={s.id} className="flex items-center gap-3 rounded-sm border border-white/5 bg-white/1 px-3 py-2.5">
                     <span
                       className={`h-1.5 w-1.5 rounded-full ${
                         submitted || i < current
@@ -301,10 +301,10 @@ export default function SubmitPage() {
           </aside>
 
           <main className="flex flex-1 items-center justify-center overflow-y-auto px-6 py-10 sm:px-10">
-            <div className="w-full max-w-2xl rounded-sm border border-white/10 bg-white/[0.01] p-6 sm:p-8">
+            <div className="w-full max-w-2xl rounded-sm border border-white/10 bg-white/1 p-6 sm:p-8">
               {submitted ? (
                 <div className="animate-slide-up space-y-6">
-                  <div className="inline-flex h-12 w-12 items-center justify-center rounded-sm border border-cyan-500/25 bg-cyan-500/[0.08]">
+                  <div className="inline-flex h-12 w-12 items-center justify-center rounded-sm border border-cyan-500/25 bg-cyan-500/8">
                     <span className="font-orbitron text-lg font-black text-cyan-400">OK</span>
                   </div>
 
@@ -364,8 +364,8 @@ export default function SubmitPage() {
                           onClick={() => handleSelectChange(step.id, o.value)}
                           className={`w-full rounded-sm border px-4 py-3 text-left text-sm transition-all ${
                             answers[step.id] === o.value
-                              ? 'border-cyan-500/40 bg-cyan-500/[0.08] text-white'
-                              : 'border-white/10 bg-white/[0.01] text-slate-400 hover:border-white/20 hover:text-white'
+                              ? 'border-cyan-500/40 bg-cyan-500/8 text-white'
+                              : 'border-white/10 bg-white/1 text-slate-400 hover:border-white/20 hover:text-white'
                           }`}
                         >
                           <span className="uppercase tracking-[0.22em]">{o.label}</span>
