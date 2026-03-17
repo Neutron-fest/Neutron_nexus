@@ -396,42 +396,6 @@ export default function About() {
           </div>
         </div>
       </section>
-
-      {!isMobile && (
-        <motion.div
-          style={{ x: cursorX, y: cursorY }}
-          className="pointer-events-none fixed left-0 top-0 z-1000 hidden md:block"
-        >
-          <AnimatePresence mode="wait">
-            {activeId && activePillar && (
-              <motion.div
-                key={activeId}
-                initial={{ opacity: 0, scale: 0.8, filter: 'blur(10px)', rotate: -2 }}
-                animate={{ opacity: 1, scale: 1, filter: 'blur(0px)', rotate: 0 }}
-                exit={{ opacity: 0, scale: 0.85, filter: 'blur(10px)', rotate: 2 }}
-                transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
-                className="relative h-72 w-96 overflow-hidden rounded-sm border border-white/10 shadow-[0_20px_50px_rgba(0,0,0,0.5)] bg-black"
-              >
-                <img
-                  src={activePillar.image}
-                  alt={activePillar.title}
-                  className="h-full w-full object-cover grayscale brightness-75 transition-all duration-700"
-                />
-                <div className="absolute inset-0 bg-linear-to-t from-black via-black/20 to-transparent opacity-80" />
-                <div className="absolute bottom-0 left-0 p-6 flex flex-col gap-2">
-                  <span className="text-[10px] font-outfit uppercase tracking-[0.4em] text-white/40">
-                    {(activePillar as any).tag}
-                  </span>
-                  <span className="text-[20px] font-outfit font-black uppercase text-white leading-none tracking-tight">
-                    {(activePillar as any).title}
-                  </span>
-                </div>
-                <div className="absolute inset-0 rounded-sm ring-1 ring-white/10 pointer-events-none" />
-              </motion.div>
-            )}
-          </AnimatePresence>
-        </motion.div>
-      )}
     </>
   )
 }

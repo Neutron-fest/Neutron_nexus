@@ -104,7 +104,7 @@ export default function Projects() {
       className="relative bg-[#050505] section-grain"
       style={{ height: `${projects.length * 100}vh` }}
     >
-      <div className="absolute top-0 left-0 w-full h-px bg-white/[0.05]" />
+      <div className="absolute top-0 left-0 w-full h-px bg-white/5" />
 
       <div
         ref={stickyRef}
@@ -121,7 +121,7 @@ export default function Projects() {
         </div>
 
         <div className="absolute top-0 left-0 right-0 z-20 flex items-center gap-6 px-6 lg:px-16 pt-28">
-          <div className="flex-1 h-px bg-white/[0.06] max-w-64">
+          <div className="flex-1 h-px bg-white/6 max-w-64">
             <motion.div
               className="h-full bg-white/40"
               style={{ width: progressWidth }}

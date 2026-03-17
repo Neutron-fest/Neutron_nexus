@@ -86,12 +86,12 @@ export default function Hero() {
           className="mt-12 md:mt-16 flex flex-col sm:flex-row items-center justify-center gap-4 md:gap-6 w-full"
         >
           <a href="#about" target='_blank' className="w-full sm:w-auto">
-            <button className="w-fit cursor-pointer sm:w-auto px-8 py-3.5 bg-[#f0ede8] text-black font-outfit text-sm font-semibold tracking-wider uppercase rounded-[2rem] hover:bg-white hover:scale-[1.03] transition-all duration-300 shadow-[0_0_40px_rgba(255,255,255,0.1)] hover:shadow-[0_0_60px_rgba(255,255,255,0.2)]">
+            <button className="w-fit cursor-pointer sm:w-auto px-8 py-3.5 bg-[#f0ede8] text-black font-outfit text-sm font-semibold tracking-wider uppercase rounded-4xl hover:bg-white hover:scale-[1.03] transition-all duration-300 shadow-[0_0_40px_rgba(255,255,255,0.1)] hover:shadow-[0_0_60px_rgba(255,255,255,0.2)]">
               Explore Vision
             </button>
           </a>
           <a href='https://jasper-crest-d0c.notion.site/32305ae3df3380508209ec1f3b1511a1' target='_blank' className="w-full sm:w-auto">
-            <button className="w-fit cursor-pointer sm:w-auto px-8 py-3.5 border border-[#f0ede8]/40 hover:border-[#f0ede8] text-white hover:text-black font-outfit text-sm font-semibold tracking-wider uppercase rounded-[2rem] hover:bg-white hover:scale-[1.03] transition-all duration-300 shadow-[0_0_40px_rgba(255,255,255,0.05)] hover:shadow-[0_0_60px_rgba(255,255,255,0.2)]">
+            <button className="w-fit cursor-pointer sm:w-auto px-8 py-3.5 border border-[#f0ede8]/40 hover:border-[#f0ede8] text-white hover:text-black font-outfit text-sm font-semibold tracking-wider uppercase rounded-4xl hover:bg-white hover:scale-[1.03] transition-all duration-300 shadow-[0_0_40px_rgba(255,255,255,0.05)] hover:shadow-[0_0_60px_rgba(255,255,255,0.2)]">
               Submit Project
             </button>
           </a>
@@ -109,7 +109,7 @@ export default function Hero() {
          <motion.div 
            animate={{ height: ["0%", "100%", "0%"], opacity: [0, 1, 0] }}
            transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-           className="w-[1px] h-12 bg-gradient-to-b from-[#f0ede8]/50 to-transparent" 
+           className="w-1 h-12 bg-linear-to-b from-[#f0ede8]/50 to-transparent" 
          />
       </motion.div>
     </section>

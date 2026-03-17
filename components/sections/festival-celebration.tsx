@@ -50,7 +50,7 @@ export default function FestivalCelebration() {
                                 key={v.id}
                                 className="flex-[0_0_85%] md:flex-[0_0_45%] lg:flex-[0_0_33.33%] min-w-0"
                             >
-                                <div className="group relative aspect-[4/5] rounded-[40px] overflow-hidden border border-white/10 bg-white/[0.02]">
+                                <div className="group relative aspect-4/5 rounded-[40px] overflow-hidden border border-white/10 bg-white/2">
                                     <Image
                                         src={v.thumbnail}
                                         alt={v.campus}
@@ -81,11 +81,11 @@ export default function FestivalCelebration() {
             </div>
 
             {/* Marquee Section */}
-            <div className="relative w-full overflow-hidden py-10 border-y border-white/5 bg-white/[0.02]">
+            <div className="relative w-full overflow-hidden py-10 border-y border-white/5 bg-white/2">
                 <div className="flex whitespace-nowrap animate-marquee">
                     {[1, 2, 3, 4].map((i) => (
-                        <div key={i} className="flex-shrink-0 px-4">
-                            <div className="relative h-48 md:h-64 aspect-[12/4] rounded-2xl overflow-hidden grayscale opacity-30 hover:grayscale-0 hover:opacity-80 transition-all duration-700">
+                        <div key={i} className="shrink-0 px-4">
+                            <div className="relative h-48 md:h-64 aspect-12/4 rounded-2xl overflow-hidden grayscale opacity-30 hover:grayscale-0 hover:opacity-80 transition-all duration-700">
                                 <Image
                                     src="https://cdn.prod.website-files.com/62e8d2ea218fb7676b6892a6/682dd4554d93a7df69000477_0ec47676c10e4674f84a8bbea65406db_festivals%20student%20images.avif"
                                     alt="Students creating rangoli"
@@ -100,8 +100,8 @@ export default function FestivalCelebration() {
 
             <Dialog open={!!activeVideo} onOpenChange={() => setActiveVideo(null)}>
                 <DialogPortal>
-                    <DialogOverlay className="fixed inset-0 z-[100] bg-black/98 backdrop-blur-2xl" />
-                    <DialogContent className="fixed left-1/2 top-1/2 z-[101] w-full max-w-6xl -translate-x-1/2 -translate-y-1/2 p-6">
+                    <DialogOverlay className="fixed inset-0 z-100 bg-black/98 backdrop-blur-2xl" />
+                    <DialogContent className="fixed left-1/2 top-1/2 z-101 w-full max-w-6xl -translate-x-1/2 -translate-y-1/2 p-6">
                         <button
                             onClick={() => setActiveVideo(null)}
                             className="absolute -top-16 right-6 p-3 rounded-full border border-white/10 text-white/40 hover:text-white transition-all"

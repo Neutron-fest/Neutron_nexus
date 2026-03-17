@@ -47,7 +47,7 @@ export default function ProjectShowcase() {
         </motion.div>
       </div>
 
-      <div className="absolute top-0 left-0 w-full h-px bg-white/[0.05]" />
+      <div className="absolute top-0 left-0 w-full h-px bg-white/5" />
 
       <div className="relative z-10 max-w-7xl mx-auto flex flex-col gap-20">
         <div className="flex flex-col lg:flex-row justify-between items-start lg:items-end gap-12">
@@ -82,7 +82,7 @@ export default function ProjectShowcase() {
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ delay: 0.4 }}
-            className="font-serif italic text-[0.95rem] text-white/35 max-w-sm leading-relaxed border-l border-white/[0.06] pl-10 lg:pb-4"
+            className="font-serif italic text-[0.95rem] text-white/35 max-w-sm leading-relaxed border-l border-white/6 pl-10 lg:pb-4"
           >
             High-potential ventures being developed at Nexus — each representing a unique hypothesis tested on the innovation floor.
           </motion.p>
@@ -96,7 +96,7 @@ export default function ProjectShowcase() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.15, duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
-              className="group flex flex-col lg:flex-row gap-8 lg:gap-16 py-12 border-t border-white/[0.05] hover:border-white/10 transition-all duration-500 cursor-default"
+              className="group flex flex-col lg:flex-row gap-8 lg:gap-16 py-12 border-t border-white/5 hover:border-white/10 transition-all duration-500 cursor-default"
             >
               <span className="font-serif italic text-[11px] text-white/20 pt-1 shrink-0 w-8">{project.index}</span>
 
@@ -129,7 +129,7 @@ export default function ProjectShowcase() {
               </div>
             </motion.div>
           ))}
-          <div className="border-t border-white/[0.04]" />
+          <div className="border-t border-white/4" />
         </div>
       </div>
     </section>

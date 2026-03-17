@@ -166,7 +166,7 @@ export default function MentorsJudges() {
                   {member.bio}
                 </p>
                 <div
-                  className="h-[1px] w-4 md:w-6 transition-all duration-700 group-hover:w-8 md:group-hover:w-12 mt-1"
+                  className="h-1 w-4 md:w-6 transition-all duration-700 group-hover:w-8 md:group-hover:w-12 mt-1"
                   style={{ background: '#d2e6ff', opacity: 0.35 }}
                 />
               </div>

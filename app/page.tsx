@@ -15,10 +15,10 @@ const SUBMISSION_URL = 'https://jasper-crest-d0c.notion.site/32305ae3df338050820
 
 const navLinks = [
   { label: 'Vision', ariaLabel: 'Go to Vision', link: '#vision' },
-  { label: 'Highlights', ariaLabel: 'Go to Highlights', link: '#highlights' },
-  { label: 'Panel', ariaLabel: 'Go to Panel', link: '#panel' },
   { label: 'Projects', ariaLabel: 'Go to Projects', link: '#projects' },
+  { label: 'Panel', ariaLabel: 'Go to Panel', link: '#panel' },
   { label: 'Schedule', ariaLabel: 'Go to Schedule', link: '#schedule' },
+  { label: 'Experience', ariaLabel: 'Go to Experience', link: '#sessions' },
   { label: 'Contact', ariaLabel: 'Go to Contact', link: '#contact' },
 ]
 

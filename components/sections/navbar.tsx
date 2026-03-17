@@ -41,9 +41,9 @@ export default function Navbar() {
   return (
     <header
       ref={navRef}
-      className={`fixed top-0 left-0 right-0 z-[100] transition-all duration-700 ${
+      className={`fixed top-0 left-0 right-0 z-100 transition-all duration-700 ${
         scrolled
-          ? 'bg-black/85 backdrop-blur-2xl border-b border-white/[0.06] py-3'
+          ? 'bg-black/85 backdrop-blur-2xl border-b border-white/6 py-3'
           : 'bg-transparent border-b border-transparent py-5'
       }`}
     >
@@ -57,7 +57,7 @@ export default function Navbar() {
           <span className="font-outfit font-black text-[13px] text-white tracking-[0.25em] uppercase leading-none">
             Neutron Nexus
           </span>
-          <span className="font-serif text-[9px] italic text-white/30 tracking-[0.1em] mt-1">
+          <span className="font-serif text-[9px] italic text-white/30 tracking-widest mt-1">
             Innovation Day 2026
           </span>
         </a>

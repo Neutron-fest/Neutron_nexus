@@ -110,7 +110,7 @@ export default function EventComponents() {
   return (
     <section ref={containerRef} id="events" className="relative w-full py-32 px-6 bg-[#030308] overflow-hidden">
       {/* ── INTERFACE DECORATION ── */}
-      <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
+      <div className="absolute top-0 left-0 w-full h-px bg-linear-to-r from-transparent via-white/10 to-transparent" />
 
       <div className="relative z-10 max-w-7xl mx-auto">
         <div className="flex flex-col lg:flex-row lg:items-end justify-between mb-24 gap-12">
@@ -132,10 +132,10 @@ export default function EventComponents() {
           {eventCards.map((card, index) => (
             <div
               key={index}
-              className="event-card group relative aspect-[4/5] p-6 bg-white/[0.01] border border-white/[0.05] hover:border-cyan-400/40 transition-all duration-500 overflow-hidden cursor-pointer"
+              className="event-card group relative aspect-4/5 p-6 bg-white/1 border border-white/5 hover:border-cyan-400/40 transition-all duration-500 overflow-hidden cursor-pointer"
             >
               {/* Background ID */}
-              <div className="absolute -bottom-4 -right-2 text-8xl font-black text-white/[0.02] group-hover:text-cyan-400/[0.05] transition-colors select-none">
+              <div className="absolute -bottom-4 -right-2 text-8xl font-black text-white/2 group-hover:text-cyan-400/5 transition-colors select-none">
                 {card.tag.split('_')[1]}
               </div>
 

@@ -77,7 +77,7 @@ export default function ProjectsPage() {
   return (
     <main className="min-h-screen w-full bg-black">
       {/* Header */}
-      <header className="fixed top-0 left-0 w-full z-50 px-6 lg:px-16 py-7 flex items-center justify-between border-b border-white/[0.05]"
+      <header className="fixed top-0 left-0 w-full z-50 px-6 lg:px-16 py-7 flex items-center justify-between border-b border-white/5"
         style={{ background: 'rgba(0,0,0,0.85)', backdropFilter: 'blur(20px)' }}>
         <Link href="/" className="flex flex-col gap-0.5 group">
           <span className="font-outfit font-black text-[13px] tracking-[0.25em] uppercase leading-none" style={{ color: '#d2e6ff' }}>
@@ -145,7 +145,7 @@ export default function ProjectsPage() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: i * 0.1, duration: 0.8 }}
-                  className="group p-10 border border-white/[0.06] hover:border-[#d2e6ff]/20 transition-all duration-700 flex flex-col gap-8 relative overflow-hidden"
+                  className="group p-10 border border-white/6 hover:border-[#d2e6ff]/20 transition-all duration-700 flex flex-col gap-8 relative overflow-hidden"
                   style={{ background: 'rgba(210,230,255,0.015)' }}
                 >
                   {/* Hover glow */}
