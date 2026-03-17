@@ -4,14 +4,55 @@ import React from 'react'
 import { motion } from 'framer-motion'
 
 export default function Contact() {
+  const [formData, setFormData] = React.useState({
+    name: '',
+    email: '',
+    message: '',
+  })
+  const [status, setStatus] = React.useState<'idle' | 'loading' | 'success' | 'error'>('idle')
+  const [errorMessage, setErrorMessage] = React.useState('')
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault()
+    setStatus('loading')
+    setErrorMessage('')
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      })
+
+      const data = await response.json()
+
+      if (!response.ok) {
+        throw new Error(data.error || 'Something went wrong')
+      }
+
+      setStatus('success')
+      setFormData({ name: '', email: '', message: '' })
+      setTimeout(() => setStatus('idle'), 5000)
+    } catch (error: any) {
+      console.error('Submission error:', error)
+      setStatus('error')
+      setErrorMessage(error.message || 'Failed to send message. Please try again.')
+    }
+  }
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { id, value } = e.target
+    setFormData((prev) => ({ ...prev, [id === 'Full Name' ? 'name' : id === 'Email Address' ? 'email' : 'message']: value }))
+  }
+
   return (
     <section
       id="contact"
       className="relative w-full bg-black section-grain py-6 lg:py-36 px-6 lg:px-20 overflow-hidden"
     >
       <div className="absolute top-0 left-0 w-full h-px" style={{ background: 'rgba(210,230,255,0.07)' }} />
-
-      {/* Blue corner glow */}
       <div className="absolute bottom-0 left-0 w-[500px] h-[500px] pointer-events-none"
         style={{ background: 'radial-gradient(ellipse 60% 60% at 0% 100%, rgba(100,160,255,0.05) 0%, transparent 70%)' }} />
 
@@ -102,12 +143,16 @@ export default function Contact() {
             className="flex-1 border-l pl-0 lg:pl-24"
             style={{ borderColor: 'rgba(210,230,255,0.07)' }}
           >
-            <form className="flex flex-col gap-10">
+            <form className="flex flex-col gap-10" onSubmit={handleSubmit}>
               <div className="flex flex-col sm:flex-row gap-10">
                 <div className="flex-1 flex flex-col gap-3 group">
                   <label className="font-outfit text-[9px] uppercase tracking-[0.5em] font-medium" style={{ color: 'rgba(210,230,255,0.35)' }}>Full Name</label>
                   <input
+                    id="Full Name"
                     type="text"
+                    required
+                    value={formData.name}
+                    onChange={handleChange}
                     className="w-full bg-transparent pb-4 font-outfit text-sm text-white placeholder:text-white/15 focus:outline-none transition-colors duration-300"
                     placeholder="Your name"
                     style={{ borderBottom: '1px solid rgba(210,230,255,0.1)' }}
@@ -118,7 +163,11 @@ export default function Contact() {
                 <div className="flex-1 flex flex-col gap-3">
                   <label className="font-outfit text-[9px] uppercase tracking-[0.5em] font-medium" style={{ color: 'rgba(210,230,255,0.35)' }}>Email Address</label>
                   <input
+                    id="Email Address"
                     type="email"
+                    required
+                    value={formData.email}
+                    onChange={handleChange}
                     className="w-full bg-transparent pb-4 font-outfit text-sm text-white placeholder:text-white/15 focus:outline-none transition-colors duration-300"
                     placeholder="your@email.com"
                     style={{ borderBottom: '1px solid rgba(210,230,255,0.1)' }}
@@ -131,7 +180,11 @@ export default function Contact() {
               <div className="flex flex-col gap-3">
                 <label className="font-outfit text-[9px] uppercase tracking-[0.5em] font-medium" style={{ color: 'rgba(210,230,255,0.35)' }}>Inquiry Brief</label>
                 <textarea
+                  id="Inquiry Brief"
                   rows={5}
+                  required
+                  value={formData.message}
+                  onChange={handleChange}
                   className="w-full bg-transparent pb-4 font-serif italic text-sm text-white placeholder:text-white/15 focus:outline-none transition-colors duration-300 resize-none leading-relaxed"
                   placeholder="Describe your objective or inquiry..."
                   style={{ borderBottom: '1px solid rgba(210,230,255,0.1)' }}
@@ -140,30 +193,56 @@ export default function Contact() {
                 />
               </div>
 
-              <button
-                type="submit"
-                className="group relative self-start flex items-center gap-8 px-10 py-5 overflow-hidden transition-all duration-500 border"
-                style={{ borderColor: 'rgba(210,230,255,0.25)', background: 'transparent' }}
-                onMouseEnter={(e) => {
-                  const btn = e.currentTarget as HTMLElement
-                  btn.style.backgroundColor = '#d2e6ff'
-                  btn.style.borderColor = '#d2e6ff'
-                  btn.querySelectorAll('span').forEach((s) => (s as HTMLElement).style.color = '#080808')
-                }}
-                onMouseLeave={(e) => {
-                  const btn = e.currentTarget as HTMLElement
-                  btn.style.backgroundColor = 'transparent'
-                  btn.style.borderColor = 'rgba(210,230,255,0.25)'
-                  btn.querySelectorAll('span').forEach((s) => (s as HTMLElement).style.color = '#d2e6ff')
-                }}
-              >
-                <span className="font-outfit font-black text-[11px] uppercase tracking-[0.3em] transition-colors duration-300" style={{ color: '#d2e6ff' }}>
-                  Send Inquiry
-                </span>
-                <span className="font-outfit text-[11px] transition-all duration-300" style={{ color: '#d2e6ff' }}>
-                  →
-                </span>
-              </button>
+              <div className="flex flex-col gap-6">
+                <button
+                  type="submit"
+                  disabled={status === 'loading'}
+                  className="group relative self-start flex items-center gap-8 px-10 py-5 overflow-hidden transition-all duration-500 border disabled:opacity-50 disabled:cursor-not-allowed"
+                  style={{ borderColor: 'rgba(210,230,255,0.25)', background: 'transparent' }}
+                  onMouseEnter={(e) => {
+                    if (status === 'loading') return
+                    const btn = e.currentTarget as HTMLElement
+                    btn.style.backgroundColor = '#d2e6ff'
+                    btn.style.borderColor = '#d2e6ff'
+                    btn.querySelectorAll('span').forEach((s) => (s as HTMLElement).style.color = '#080808')
+                  }}
+                  onMouseLeave={(e) => {
+                    if (status === 'loading') return
+                    const btn = e.currentTarget as HTMLElement
+                    btn.style.backgroundColor = 'transparent'
+                    btn.style.borderColor = 'rgba(210,230,255,0.25)'
+                    btn.querySelectorAll('span').forEach((s) => (s as HTMLElement).style.color = '#d2e6ff')
+                  }}
+                >
+                  <span className="font-outfit font-black text-[11px] uppercase tracking-[0.3em] transition-colors duration-300" style={{ color: '#d2e6ff' }}>
+                    {status === 'loading' ? 'Sending Protocol...' : status === 'success' ? 'Inquiry Sent' : 'Send Inquiry'}
+                  </span>
+                  <span className="font-outfit text-[11px] transition-all duration-300" style={{ color: '#d2e6ff' }}>
+                    {status === 'success' ? '✓' : '→'}
+                  </span>
+                </button>
+
+                {status === 'success' && (
+                  <motion.p
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    className="font-outfit text-[10px] uppercase tracking-[0.2em]"
+                    style={{ color: '#d2e6ff' }}
+                  >
+                    Your transmission has been received. Expect contact shortly.
+                  </motion.p>
+                )}
+
+                {status === 'error' && (
+                  <motion.p
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    className="font-outfit text-[10px] uppercase tracking-[0.2em] text-red-400"
+                  >
+                    {errorMessage || 'Transmission failed. Please re-attempt.'}
+                  </motion.p>
+                )}
+              </div>
             </form>
           </motion.div>
         </div>
