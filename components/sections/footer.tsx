@@ -69,8 +69,7 @@ export default function Footer() {
                 startx.ru@newtonschool.co
               </a>
               <p className="mt-2 text-white/50">
-                Neutron Nexus,<br/>
-                Rishihood University<br />
+                Newton School of Technology<br />
                 Delhi NCR, Sonepat, Haryana<br />
                 131021, India
               </p>
