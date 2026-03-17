@@ -8,11 +8,11 @@ const mediaItems = [
   { id: 2, src: 'https://cdn.prod.website-files.com/62e8d2ea218fb7676b6892a6/6762d9cc7fb43118f36e1622_WhatsApp%20Image%202024-12-18%20at%2019.07.11_0ebdcbde.avif', title: 'Strategy Briefing' },
   { id: 3, src: 'https://cdn.prod.website-files.com/62e8d2ea218fb7676b6892a6/6762d9cc35bb6b0be9675c94_WhatsApp%20Image%202024-12-18%20at%2019.13.21_5ac2a662.avif', title: 'Development Sprint' },
   { id: 4, src: 'https://cdn.prod.website-files.com/62e8d2ea218fb7676b6892a6/682dbb092686e716bedae586_Instagram%20story%20-%201.avif', title: 'Project Alignment' },
-  { id: 5, src: 'https://ik.imagekit.io/yatharth/image.png', title: 'System Design' },
+  { id: 5, src: 'https://neutron-organization.vercel.app/Gallery/ARS07327.JPG', title: 'Crazy Energy' },
   { id: 6, src: 'https://cdn.prod.website-files.com/62e8d2ea218fb7676b6892a6/682dbbcb747e94b97157e791_Instagram%20story%20-%202.avif', title: 'Nexus Integration' },
   { id: 7, src: 'https://cdn.prod.website-files.com/62e8d2ea218fb7676b6892a6/6762d9cc3742cd17ee9c2335_WhatsApp%20Image%202024-12-18%20at%2019.13.48_72e85a55.avif', title: 'Core Validation' },
-  { id: 8, src: 'https://cdn.prod.website-files.com/62e8d2ea218fb7676b6892a6/682dbb0a0f407512a2700f57_Instagram%20story%20-%202-1.avif', title: 'Scale Planning' },
-  { id: 9, src: 'https://cdn.prod.website-files.com/62e8d2ea218fb7676b6892a6/682dbb0ad5a5528c9855e189_Instagram%20story%20-%201-1.avif', title: 'Executive Review' },
+  { id: 8, src: 'https://cdn.prod.website-files.com/62e8d2ea218fb7676b6892a6/682dab6417216aed613045cd_Instagram%20story%20-%201.avif', title: 'Scale Planning' },
+  { id: 9, src: 'https://neutron-organization.vercel.app/Gallery/20250413_195125.jpg', title: 'Drone Show' },
 ]
 
 function MediaCard({ 

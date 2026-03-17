@@ -41,10 +41,10 @@ export default function Footer() {
             <div className="flex flex-wrap sm:grid sm:grid-cols-3 gap-3">
               {[
                 { label: 'WHO WE ARE', href: '#vision' },
-                { label: 'OUR PROCESS', href: '#highlights' },
-                { label: 'PROJECTS', href: '#grid' },
+                { label: 'ROADMAP', href: '#journey' },
+                // { label: 'PROJECTS', href: '#grid' },
                 { label: 'OUR JUDGES', href: '#panel' },
-                { label: 'SCHEDULE', href: '#schedule' },
+                { label: 'MEDIA', href: '#sessions' },
                 { label: 'CONTACT US', href: '#contact' }
               ].map((link) => (
                 <Link 
