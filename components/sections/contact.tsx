@@ -43,14 +43,14 @@ export default function Contact() {
   }
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { id, value } = e.target
-    setFormData((prev) => ({ ...prev, [id === 'Full Name' ? 'name' : id === 'Email Address' ? 'email' : 'message']: value }))
+    const { name, value } = e.target
+    setFormData((prev) => ({ ...prev, [name]: value }))
   }
 
   return (
     <section
       id="contact"
-      className="relative w-full bg-black section-grain py-6 lg:py-36 px-6 lg:px-20 overflow-hidden"
+      className="relative w-full bg-black section-grain py-24 lg:py-48 px-6 lg:px-20 overflow-hidden"
     >
       <div className="absolute top-0 left-0 w-full h-px" style={{ background: 'rgba(210,230,255,0.07)' }} />
       <div className="absolute bottom-0 left-0 w-[500px] h-[500px] pointer-events-none"
@@ -76,7 +76,7 @@ export default function Contact() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
-            className="font-outfit font-black text-[clamp(3rem,8vw,7rem)] leading-[0.92] text-white uppercase tracking-tight"
+            className="font-outfit font-black text-[clamp(3.5rem,8vw,8rem)] leading-[0.88] text-white uppercase tracking-tight"
           >
             Get in<br />
             <span style={{ color: '#d2e6ff', fontFamily: 'Noto Serif, serif', fontStyle: 'italic', fontWeight: 400 }}>Touch.</span>
@@ -92,7 +92,7 @@ export default function Contact() {
             transition={{ duration: 0.9 }}
             className="lg:w-96 shrink-0 space-y-16"
           >
-            <p className="font-serif italic text-[1.05rem] text-white/40 leading-relaxed">
+            <p className="font-serif italic text-lg text-white/50 leading-relaxed border-l border-[#d2e6ff]/20 pl-8">
               Direct lines for institutional projects, venture inquiries, and assembly coordination.
             </p>
 
@@ -103,18 +103,17 @@ export default function Contact() {
                 { label: 'Event Date', value: '28 March 2026', icon: '◇' },
               ].map((item) => (
                 <div key={item.label} className="py-7 border-t flex items-center gap-6" style={{ borderColor: 'rgba(210,230,255,0.07)' }}>
-                  <span className="text-[14px] shrink-0 w-6 text-center" style={{ color: 'rgba(210,230,255,0.3)' }}>{item.icon}</span>
+                  <span className="text-[14px] shrink-0 w-6 text-center" style={{ color: 'rgba(210,230,255,0.4)' }}>{item.icon}</span>
                   <div className="space-y-1">
-                    <span className="font-outfit text-[9px] uppercase tracking-[0.5em] font-medium block" style={{ color: 'rgba(210,230,255,0.3)' }}>{item.label}</span>
-                    <span className="font-serif italic text-[0.95rem] text-white/60">{item.value}</span>
+                    <span className="font-outfit text-[10px] uppercase tracking-[0.4em] font-medium block" style={{ color: 'rgba(210,230,255,0.4)' }}>{item.label}</span>
+                    <span className="font-serif italic text-base text-white/70">{item.value}</span>
                   </div>
                 </div>
               ))}
             </div>
 
-            {/* Social links */}
             <div className="flex flex-col gap-4">
-              <span className="font-outfit text-[9px] uppercase tracking-[0.6em] font-medium" style={{ color: 'rgba(210,230,255,0.3)' }}>
+              <span className="font-outfit text-[10px] uppercase tracking-[0.5em] font-medium" style={{ color: 'rgba(210,230,255,0.4)' }}>
                 Follow Protocol
               </span>
               <div className="flex gap-5">
@@ -122,10 +121,10 @@ export default function Contact() {
                   <a
                     key={s}
                     href="#"
-                    className="font-outfit text-[9px] uppercase tracking-[0.4em] font-medium transition-colors duration-300 border-b pb-0.5"
-                    style={{ color: 'rgba(255,255,255,0.3)', borderColor: 'rgba(210,230,255,0.1)' }}
+                    className="font-outfit text-[10px] uppercase tracking-[0.3em] font-medium transition-all duration-300 border-b pb-1"
+                    style={{ color: 'rgba(255,255,255,0.4)', borderColor: 'rgba(210,230,255,0.1)' }}
                     onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.color = '#d2e6ff'; (e.currentTarget as HTMLElement).style.borderColor = '#d2e6ff' }}
-                    onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.color = 'rgba(255,255,255,0.3)'; (e.currentTarget as HTMLElement).style.borderColor = 'rgba(210,230,255,0.1)' }}
+                    onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.color = 'rgba(255,255,255,0.4)'; (e.currentTarget as HTMLElement).style.borderColor = 'rgba(210,230,255,0.1)' }}
                   >
                     {s}
                   </a>
@@ -134,92 +133,81 @@ export default function Contact() {
             </div>
           </motion.div>
 
-          {/* Right form */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.9, delay: 0.2 }}
-            className="flex-1 border-l pl-0 lg:pl-24"
-            style={{ borderColor: 'rgba(210,230,255,0.07)' }}
+            className="flex-1 border border-white/5 rounded-2xl p-8 lg:p-12 backdrop-blur-sm"
           >
-            <form className="flex flex-col gap-10" onSubmit={handleSubmit}>
-              <div className="flex flex-col sm:flex-row gap-10">
-                <div className="flex-1 flex flex-col gap-3 group">
-                  <label className="font-outfit text-[9px] uppercase tracking-[0.5em] font-medium" style={{ color: 'rgba(210,230,255,0.35)' }}>Full Name</label>
-                  <input
-                    id="Full Name"
-                    type="text"
-                    required
-                    value={formData.name}
-                    onChange={handleChange}
-                    className="w-full bg-transparent pb-4 font-outfit text-sm text-white placeholder:text-white/15 focus:outline-none transition-colors duration-300"
-                    placeholder="Your name"
-                    style={{ borderBottom: '1px solid rgba(210,230,255,0.1)' }}
-                    onFocus={(e) => (e.currentTarget.style.borderBottomColor = 'rgba(210,230,255,0.4)')}
-                    onBlur={(e) => (e.currentTarget.style.borderBottomColor = 'rgba(210,230,255,0.1)')}
-                  />
+            <form className="flex flex-col gap-12" onSubmit={handleSubmit}>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+                <div className="flex flex-col gap-4 group">
+                  <label className="font-outfit text-[10px] uppercase tracking-[0.4em] font-semibold text-[#d2e6ff]/50 group-focus-within:text-[#d2e6ff] transition-colors">
+                    Full Name
+                  </label>
+                  <div className="relative">
+                    <input
+                      name="name"
+                      type="text"
+                      required
+                      value={formData.name}
+                      onChange={handleChange}
+                      autoComplete="name"
+                      className="w-full border border-white/10 rounded-lg px-6 py-4 font-outfit text-sm text-white placeholder:text-white/20 focus:outline-none focus:border-[#d2e6ff]/40 focus:bg-white/8 transition-all duration-300"
+                      placeholder="Enter your full name"
+                    />
+                  </div>
                 </div>
-                <div className="flex-1 flex flex-col gap-3">
-                  <label className="font-outfit text-[9px] uppercase tracking-[0.5em] font-medium" style={{ color: 'rgba(210,230,255,0.35)' }}>Email Address</label>
-                  <input
-                    id="Email Address"
-                    type="email"
-                    required
-                    value={formData.email}
-                    onChange={handleChange}
-                    className="w-full bg-transparent pb-4 font-outfit text-sm text-white placeholder:text-white/15 focus:outline-none transition-colors duration-300"
-                    placeholder="your@email.com"
-                    style={{ borderBottom: '1px solid rgba(210,230,255,0.1)' }}
-                    onFocus={(e) => (e.currentTarget.style.borderBottomColor = 'rgba(210,230,255,0.4)')}
-                    onBlur={(e) => (e.currentTarget.style.borderBottomColor = 'rgba(210,230,255,0.1)')}
-                  />
+                <div className="flex flex-col gap-4 group">
+                  <label className="font-outfit text-[10px] uppercase tracking-[0.4em] font-semibold text-[#d2e6ff]/50 group-focus-within:text-[#d2e6ff] transition-colors">
+                    Email Address
+                  </label>
+                  <div className="relative">
+                    <input
+                      name="email"
+                      type="email"
+                      required
+                      value={formData.email}
+                      onChange={handleChange}
+                      autoComplete="email"
+                      className="w-full border border-white/10 rounded-lg px-6 py-4 font-outfit text-sm text-white placeholder:text-white/20 focus:outline-none focus:border-[#d2e6ff]/40 focus:bg-white/8 transition-all duration-300"
+                      placeholder="e.g. your@email.com"
+                    />
+                  </div>
                 </div>
               </div>
 
-              <div className="flex flex-col gap-3">
-                <label className="font-outfit text-[9px] uppercase tracking-[0.5em] font-medium" style={{ color: 'rgba(210,230,255,0.35)' }}>Inquiry Brief</label>
-                <textarea
-                  id="Inquiry Brief"
-                  rows={5}
-                  required
-                  value={formData.message}
-                  onChange={handleChange}
-                  className="w-full bg-transparent pb-4 font-serif italic text-sm text-white placeholder:text-white/15 focus:outline-none transition-colors duration-300 resize-none leading-relaxed"
-                  placeholder="Describe your objective or inquiry..."
-                  style={{ borderBottom: '1px solid rgba(210,230,255,0.1)' }}
-                  onFocus={(e) => (e.currentTarget.style.borderBottomColor = 'rgba(210,230,255,0.4)')}
-                  onBlur={(e) => (e.currentTarget.style.borderBottomColor = 'rgba(210,230,255,0.1)')}
-                />
+              <div className="flex flex-col gap-4 group">
+                <label className="font-outfit text-[10px] uppercase tracking-[0.4em] font-semibold text-[#d2e6ff]/50 group-focus-within:text-[#d2e6ff] transition-colors">
+                  Inquiry Brief
+                </label>
+                <div className="relative">
+                  <textarea
+                    name="message"
+                    rows={6}
+                    required
+                    value={formData.message}
+                    onChange={handleChange}
+                    className="w-full border border-white/10 rounded-lg px-6 py-4 font-serif italic text-base text-white placeholder:text-white/20 focus:outline-none focus:border-[#d2e6ff]/40 focus:bg-white/8 transition-all duration-300 resize-none leading-relaxed"
+                    placeholder="Briefly describe your objective or inquiry..."
+                  />
+                </div>
               </div>
 
               <div className="flex flex-col gap-6">
                 <button
                   type="submit"
                   disabled={status === 'loading'}
-                  className="group relative self-start flex items-center gap-8 px-10 py-5 overflow-hidden transition-all duration-500 border disabled:opacity-50 disabled:cursor-not-allowed"
-                  style={{ borderColor: 'rgba(210,230,255,0.25)', background: 'transparent' }}
-                  onMouseEnter={(e) => {
-                    if (status === 'loading') return
-                    const btn = e.currentTarget as HTMLElement
-                    btn.style.backgroundColor = '#d2e6ff'
-                    btn.style.borderColor = '#d2e6ff'
-                    btn.querySelectorAll('span').forEach((s) => (s as HTMLElement).style.color = '#080808')
-                  }}
-                  onMouseLeave={(e) => {
-                    if (status === 'loading') return
-                    const btn = e.currentTarget as HTMLElement
-                    btn.style.backgroundColor = 'transparent'
-                    btn.style.borderColor = 'rgba(210,230,255,0.25)'
-                    btn.querySelectorAll('span').forEach((s) => (s as HTMLElement).style.color = '#d2e6ff')
-                  }}
+                  className="group relative self-start flex items-center gap-10 px-12 py-5 overflow-hidden transition-all duration-500 rounded-full border border-[#d2e6ff]/20 disabled:opacity-50 disabled:cursor-not-allowed hover:border-[#d2e6ff] hover:bg-[#d2e6ff]"
                 >
-                  <span className="font-outfit font-black text-[11px] uppercase tracking-[0.3em] transition-colors duration-300" style={{ color: '#d2e6ff' }}>
+                  <span className="relative z-10 font-outfit font-black text-[11px] uppercase tracking-[0.4em] text-[#d2e6ff] group-hover:text-black transition-colors duration-300">
                     {status === 'loading' ? 'Sending Protocol...' : status === 'success' ? 'Inquiry Sent' : 'Send Inquiry'}
                   </span>
-                  <span className="font-outfit text-[11px] transition-all duration-300" style={{ color: '#d2e6ff' }}>
+                  <span className="relative z-10 font-outfit text-[11px] text-[#d2e6ff] group-hover:text-black transition-all duration-300">
                     {status === 'success' ? '✓' : '→'}
                   </span>
+                  <div className="absolute inset-0 bg-linear-to-r from-[#d2e6ff]/0 via-[#d2e6ff]/10 to-[#d2e6ff]/0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
                 </button>
 
                 {status === 'success' && (

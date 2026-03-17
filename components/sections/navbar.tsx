@@ -7,7 +7,7 @@ import gsap from 'gsap'
 const SUBMISSION_URL = 'https://jasper-crest-d0c.notion.site/32305ae3df3380508209ec1f3b1511a1'
 
 const navLinks = [
-  { label: 'Vision', href: '#vision' },
+  { label: 'About Us', href: '#vision' },
   { label: 'Highlights', href: '#highlights' },
   { label: 'Panel', href: '#panel' },
   { label: 'Schedule', href: '#schedule' },
@@ -70,7 +70,7 @@ export default function Navbar() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.1 * i + 0.4, duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
                 onClick={() => handleNav(link.href)}
-                className="font-outfit text-[11px] tracking-[0.25em] uppercase text-white/40 hover:text-white/90 transition-colors duration-300 underline-expand"
+                className="font-outfit text-[8px] tracking-[0.25em] uppercase text-white/40 hover:text-white/90 transition-colors duration-300 underline-expand"
               >
                 {link.label}
               </motion.button>
@@ -120,7 +120,7 @@ export default function Navbar() {
             <li key={link.label}>
               <button
                 onClick={() => handleNav(link.href)}
-                className="font-outfit text-[13px] tracking-[0.25em] uppercase text-white/40 hover:text-white transition-colors duration-300 w-full text-left"
+                className="font-outfit text-[8px] tracking-[0.25em] uppercase text-white/40 hover:text-white transition-colors duration-300 w-full text-left"
               >
                 {link.label}
               </button>

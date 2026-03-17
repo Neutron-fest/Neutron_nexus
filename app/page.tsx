@@ -14,11 +14,10 @@ import { StaggeredMenu } from '@/components/StaggeredMenu'
 const SUBMISSION_URL = 'https://jasper-crest-d0c.notion.site/32305ae3df3380508209ec1f3b1511a1'
 
 const navLinks = [
-  { label: 'Vision', ariaLabel: 'Go to Vision', link: '#vision' },
-  { label: 'Projects', ariaLabel: 'Go to Projects', link: '#projects' },
-  { label: 'Panel', ariaLabel: 'Go to Panel', link: '#panel' },
-  { label: 'Schedule', ariaLabel: 'Go to Schedule', link: '#schedule' },
-  { label: 'Experience', ariaLabel: 'Go to Experience', link: '#sessions' },
+  { label: 'About Us', ariaLabel: 'Go to About Us', link: '#vision' },
+  { label: 'Road Map', ariaLabel: 'Go to Schedule', link: '#journey' },
+  { label: 'Judges', ariaLabel: 'Go to Judges', link: '#panel' },
+  { label: 'Media', ariaLabel: 'Go to Media', link: '#sessions' },
   { label: 'Contact', ariaLabel: 'Go to Contact', link: '#contact' },
 ]
 
@@ -52,7 +51,7 @@ export default function Home() {
       {/* <EventHighlights /> */}
       {/* <ProjectsHome /> */}
       <MentorsJudges />
-      <EventSchedule />
+      {/* <EventSchedule /> */}
       <InTheRoom />
       <Contact />
       <Footer />

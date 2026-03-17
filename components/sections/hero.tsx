@@ -61,7 +61,8 @@ export default function Hero() {
           transition={{ duration: 1, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
           className="text-[2.75rem] sm:text-6xl md:text-7xl lg:text-[5.5rem] font-outfit text-[#f0ede8] tracking-tight leading-[1.05] mb-6 font-medium"
         >
-          <span>The Nexus of Ambition,</span> <br />
+          <span className='md:text-5xl text-sky-200'>Nexus by <span className='text-white'> Neutron</span></span> <br/>
+          <span className='pt-12'>The Nexus of Ambition,</span> <br />
           <span className="font-serif italic font-light text-white/90">The Convergence of Vision</span>
         </motion.h1>
         

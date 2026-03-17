@@ -312,7 +312,7 @@ export default function About() {
         ref={containerRef}
         id="vision"
         onMouseMove={handleMouseMove}
-        className="relative w-full bg-black section-grain py-24 md:py-48 px-6 lg:px-20 overflow-hidden"
+        className="relative w-full bg-black section-grain pt-24 md:pt-48 px-6 lg:px-20 overflow-hidden"
       >
         <div className="absolute inset-0 pointer-events-none">
           <motion.div
@@ -370,32 +370,217 @@ export default function About() {
               />
             ))}
           </div>
+          <div className="flex flex-col gap-20 pt-24 border-t border-white/5">
+            <div className="flex flex-col lg:flex-row gap-12 lg:gap-32 items-start">
+              <div className="flex flex-col gap-6 max-w-xl">
+                 <motion.div
+                    initial={{ opacity: 0, x: -20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    className="flex items-center gap-4"
+                  >
+                    <div className="h-px w-8 bg-[#d2e6ff]/30" />
+                    <span className="font-outfit text-[10px] uppercase tracking-[0.4em] text-[#d2e6ff]/50 font-medium">
+                      Student Ecosystem
+                    </span>
+                  </motion.div>
+                
+                <motion.h3 
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  className="font-outfit font-black text-[clamp(2rem,5vw,4rem)] leading-none text-white uppercase tracking-tight"
+                >
+                  What's in it<br />
+                  <span className="font-serif italic font-normal text-white/30">For the Builders.</span>
+                </motion.h3>
+                <p className="font-serif italic text-white/50 text-lg leading-relaxed border-l border-white/10 pl-8">
+                  We provide the infrastructure for radical growth. Not just a hackathon, but a launchpad for the next generation of technical founders.
+                </p>
+              </div>
 
-          <div className="stats-wrapper relative grid grid-cols-2 md:flex md:flex-row gap-0 border-t border-y border-white/5 overflow-hidden">
-            <motion.div
-              animate={{
-                y: ["0%", "100%", "0%"],
-              }}
-              transition={{
-                duration: 8,
-                repeat: Infinity,
-                ease: "linear",
-              }}
-              className="absolute inset-x-0 h-px bg-linear-to-r from-transparent via-white/10 to-transparent z-20 pointer-events-none"
-            />
-            
-            {stats.map((s, idx) => (
-              <StatItem 
-                key={s.label}
-                label={s.label}
-                value={s.value}
-                suffix={s.suffix}
-              />
-            ))}
+              <div className="flex-1 grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-16">
+                {[
+                  {
+                    title: 'Direct Mentorship from Industry Experts',
+                    importance: 'Technical Mastery',
+                    desc: 'Connect with technical leaders from Microsoft and Google for high-fidelity guidance on your stack.'
+                  },
+                  {
+                    title: 'Showcase Your Idea to Investors',
+                    importance: 'Market Fit',
+                    desc: 'Showcase your ideas to the real investors and mentors who understand deep-tech and commercial scalability.'
+                  },
+                  {
+                    title: 'Enhance Networking with the Founders',
+                    importance: 'Build Connections',
+                    desc: 'Build connections with the brightest minds in the country and take your ideas to the next level.'
+                  },
+                  {
+                    title: 'Multiple Exhibitions for Exposure',
+                    importance: 'Exposure',
+                    desc: 'Showcase your project to a diverse audience and get valuable feedback from peers and mentors.'
+                  }
+                ].map((item, idx) => (
+                  <motion.div
+                    key={item.title}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: idx * 0.1 }}
+                    className="flex flex-col gap-4 group"
+                  >
+                    <div className="flex items-center gap-3">
+                      <span className="font-serif italic text-xs text-[#d2e6ff]/40">0{idx + 1}</span>
+                      <h4 className="font-outfit font-bold text-lg text-white uppercase tracking-tight group-hover:text-[#d2e6ff] transition-colors">
+                        {item.title}
+                      </h4>
+                    </div>
+                    <div className="space-y-3">
+                      <span className="inline-block text-[8px] font-outfit font-black uppercase tracking-[0.3em] text-[#d2e6ff]/60 border border-[#d2e6ff]/20 px-2 py-0.5 rounded-sm">
+                        {item.importance}
+                      </span>
+                      <p className="font-serif italic text-sm text-white/40 leading-relaxed">
+                        {item.desc}
+                      </p>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          {/* Learning Journey Section */}
+          <div id="journey" className="flex flex-col gap-24 py-24 border-t border-white/5">
+            <div className="flex flex-col gap-8">
+              <motion.div
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                className="flex items-center gap-4"
+              >
+                <div className="h-px w-8 bg-[#d2e6ff]/30" />
+                <span className="font-outfit text-[10px] uppercase tracking-[0.4em] text-[#d2e6ff]/50 font-medium">
+                  The Learning Curve
+                </span>
+              </motion.div>
+              
+              <motion.h3 
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                className="font-outfit font-black text-[clamp(2rem,5vw,4rem)] leading-none text-white uppercase tracking-tight"
+              >
+                The Road to<br />
+                <span className="font-serif italic font-normal text-white/30">Hard Execution.</span>
+              </motion.h3>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {[
+                {
+                  title: 'Strategic Framing',
+                  importance: 'Vision Alignment',
+                  desc: 'Master the art of narrative. Align your technical vision with market needs and strategic objectives.',
+                  icon: '01'
+                },
+                {
+                  title: 'Product Foundry',
+                  importance: 'Technical Validation',
+                  desc: 'Stress-test your stack. Move from theoretical models to high-fidelity, working prototypes.',
+                  icon: '02'
+                },
+                {
+                  title: 'Architecture Sync',
+                  importance: 'Scaling Logic',
+                  desc: 'Direct interaction with system architects to refine infrastructure and performance bottlenecks.',
+                  icon: '03'
+                },
+                {
+                  title: 'Venture Readiness',
+                  importance: 'Market Fit',
+                  desc: 'Transform prototypes into viable entities. Validate commercial logic and investor appeal.',
+                  icon: '04'
+                },
+                {
+                  title: 'Brand Excellence',
+                  importance: 'Builder Identity',
+                  desc: 'Establish your footprint in the ecosystem through peer review and expert certification.',
+                  icon: '05'
+                }
+              ].map((step, idx) => (
+                <motion.div
+                  key={step.title}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, delay: idx * 0.1 }}
+                  className="group relative h-full flex flex-col p-8 rounded-2xl border border-white/5 bg-white/1 hover:bg-white/3 transition-all duration-500 overflow-hidden"
+                >
+                  <div className="absolute top-0 right-0 p-6">
+                    <span className="font-serif italic text-4xl text-white/3 group-hover:text-[#d2e6ff]/5 transition-colors duration-500">
+                      {step.icon}
+                    </span>
+                  </div>
+
+                  <div className="relative z-10 flex flex-col h-full gap-6">
+                    <div className="space-y-4">
+                      <h4 className="font-outfit font-bold text-xl text-white uppercase tracking-tight group-hover:text-[#d2e6ff] transition-colors">
+                        {step.title}
+                      </h4>
+                      <div className="inline-block px-3 py-1 rounded-sm border border-[#d2e6ff]/20 bg-[#d2e6ff]/5">
+                        <span className="font-outfit text-[9px] font-black uppercase tracking-[0.2em] text-[#d2e6ff]/70">
+                          {step.importance}
+                        </span>
+                      </div>
+                    </div>
+                    <p className="font-serif italic text-sm text-white/40 leading-relaxed group-hover:text-white/60 transition-colors">
+                      {step.desc}
+                    </p>
+                    
+                    <div className="mt-auto pt-6 flex items-center gap-3">
+                      <div className="w-6 h-px bg-white/10 group-hover:w-10 group-hover:bg-[#d2e6ff]/40 transition-all duration-500" />
+                      <span className="text-[10px] font-outfit uppercase tracking-widest text-white/20 group-hover:text-[#d2e6ff]/40 transition-colors">
+                        Phase {step.icon}
+                      </span>
+                    </div>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+
+            <div className="flex flex-col items-center gap-6">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                className="flex justify-center text-center"
+              >
+                <p className='font-outfit font-black text-xl leading-none text-white uppercase tracking-tight'>
+                  Have an idea? and want to showcase it to the world?
+                </p>
+              </motion.div>
+
+              <motion.div 
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                className="flex justify-center"
+              >
+                <a 
+                  href="#submit" 
+                  className="group relative px-12 py-5 overflow-hidden rounded-full border border-white/10 bg-white/5 transition-all duration-500 hover:border-[#d2e6ff]/50"
+                >
+                  <div className="absolute inset-0 bg-linear-to-r from-[#d2e6ff]/0 via-[#d2e6ff]/5 to-[#d2e6ff]/0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
+                  <span className="relative z-10 font-outfit text-[11px] uppercase tracking-[0.6em] font-black text-white group-hover:text-[#d2e6ff] transition-colors">
+                    PITCH YOUR IDEA
+                  </span>
+                </a>
+              </motion.div>
+            </div>
           </div>
         </div>
       </section>
     </>
   )
 }
-

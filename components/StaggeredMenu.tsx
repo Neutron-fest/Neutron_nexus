@@ -500,7 +500,7 @@ export const StaggeredMenu: React.FC<StaggeredMenuProps> = ({
                 items.map((it, idx) => (
                   <li className="sm-panel-itemWrap relative overflow-hidden leading-none" key={it.label + idx}>
                     <a
-                      className="sm-panel-item relative text-black font-outfit font-black text-[3.5rem] lg:text-[4.5rem] cursor-pointer leading-[0.85] tracking-[-3px] uppercase transition-[background,color] duration-300 ease-out inline-block no-underline pr-[1.4em] hover:tracking-[-1px]"
+                      className="sm-panel-item relative text-black font-outfit font-black text-[3.5rem] lg:text-[4rem] cursor-pointer tracking-[-3px] uppercase transition-[background,color] duration-300 ease-out inline-block no-underline pr-[1.4em]"
                       href={it.link}
                       aria-label={it.ariaLabel}
                       data-index={idx + 1}
