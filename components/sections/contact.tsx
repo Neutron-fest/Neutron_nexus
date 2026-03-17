@@ -57,7 +57,7 @@ export default function Contact() {
 
             <div className="flex flex-col gap-0">
               {[
-                { label: 'Institutional Email', value: 'hello@neutronnexus.com', icon: '@' },
+                { label: 'Institutional Email', value: 'startx.ru@newtonschool.co', icon: '@' },
                 { label: 'Assembly HQ', value: 'Innovation District, Delhi NCR', icon: '◎' },
                 { label: 'Event Date', value: '28 March 2026', icon: '◇' },
               ].map((item) => (
