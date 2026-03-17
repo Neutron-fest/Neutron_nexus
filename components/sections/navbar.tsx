@@ -4,7 +4,10 @@ import { useEffect, useState, useRef } from 'react'
 import { motion, useScroll, useMotionValueEvent } from 'framer-motion'
 import gsap from 'gsap'
 
+import Image from 'next/image'
+
 const SUBMISSION_URL = 'https://jasper-crest-d0c.notion.site/32305ae3df3380508209ec1f3b1511a1'
+const LOGO_URL = 'https://ik.imagekit.io/yatharth/nexus.png'
 
 const navLinks = [
   { label: 'About Us', href: '#vision' },
@@ -52,14 +55,17 @@ export default function Navbar() {
           ref={logoRef}
           href="#"
           onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }) }}
-          className="flex flex-col shrink-0 group opacity-0"
+          className="relative flex items-center gap-3 shrink-0 group opacity-0"
         >
-          <span className="font-outfit font-black text-[13px] text-white tracking-[0.25em] uppercase leading-none">
-            Neutron Nexus
-          </span>
-          <span className="font-serif text-[9px] italic text-white/30 tracking-widest mt-1">
-            Innovation Day 2026
-          </span>
+          <div className="relative w-32 h-10 transition-transform duration-500 group-hover:scale-105 active:scale-95">
+            <Image
+              src={LOGO_URL}
+              alt="Nexus Logo"
+              fill
+              className="object-contain"
+              priority
+            />
+          </div>
         </a>
 
         <ul className="hidden md:flex items-center gap-10">

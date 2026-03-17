@@ -10,8 +10,10 @@ import ProjectsHome from '@/components/sections/link-preview-section'
 import Contact from '@/components/sections/contact'
 import Footer from '@/components/sections/footer'
 import { StaggeredMenu } from '@/components/StaggeredMenu'
+import Image from 'next/image'
 
 const SUBMISSION_URL = 'https://jasper-crest-d0c.notion.site/32305ae3df3380508209ec1f3b1511a1'
+const LOGO_URL = 'https://ik.imagekit.io/yatharth/nexus.png'
 
 const navLinks = [
   { label: 'About Us', ariaLabel: 'Go to About Us', link: '#vision' },
@@ -28,13 +30,14 @@ export default function Home() {
       <StaggeredMenu
         items={navLinks}
         logoContent={
-          <div className="flex flex-col shrink-0 group">
-            <span className="font-outfit font-black text-[13px] tracking-[0.25em] uppercase leading-none" style={{ color: 'rgba(210, 230, 255, 0.85)' }}>
-              Neutron Nexus
-            </span>
-            <span className="font-serif text-[9px] italic tracking-widest mt-1" style={{ color: 'rgba(160, 200, 255, 0.35)' }}>
-              Innovation Day 2026
-            </span>
+          <div className="relative w-32 h-10 transition-transform duration-500 group-hover:scale-105 active:scale-95">
+            <Image
+              src={LOGO_URL}
+              alt="Nexus Logo"
+              fill
+              className="object-contain"
+              priority
+            />
           </div>
         }
         headerCTA={

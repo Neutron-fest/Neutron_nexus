@@ -61,9 +61,19 @@ export default function Hero() {
           transition={{ duration: 1, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
           className="text-[2.75rem] sm:text-6xl md:text-7xl lg:text-[5.5rem] font-outfit text-[#f0ede8] tracking-tight leading-[1.05] mb-6 font-medium"
         >
-          <span className='md:text-5xl text-sky-200'>Nexus by <span className='text-white'> Neutron</span></span> <br/>
-          <span className='pt-12'>The Nexus of Ambition,</span> <br />
-          <span className="font-serif italic font-light text-white/90">The Convergence of Vision</span>
+          <span className="flex items-center justify-center gap-x-1 md:gap-x-2 text-xl md:text-5xl text-sky-200">
+            Nexus by 
+            <img 
+              src="https://neutron-organization.vercel.app/neutron.png" 
+              alt="Neutron" 
+              className="w-12 h-12 md:w-16 md:h-16 object-contain"
+            /> 
+            <span className="text-white text-xl md:text-5xl lowercase">neutron</span>
+          </span>
+          <div className="mt-8 md:mt-12">
+            The Nexus of Ambition,<br />
+            <span className="font-serif italic font-light text-white/90">The Convergence of Vision</span>
+          </div>
         </motion.h1>
         
         <motion.div 
