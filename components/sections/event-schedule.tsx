@@ -8,12 +8,11 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger'
 gsap.registerPlugin(ScrollTrigger)
 
 const schedule = [
-  { time: '08:00', period: 'AM', title: 'Opening Keynote', description: 'Executive vision and inauguration of the 2026 Innovation Assembly.', venue: 'Main Auditorium' },
-  { time: '10:30', period: 'AM', title: 'The Foundry Floor', description: 'Intensive building session — founders moving from logic to high-fidelity prototype.', venue: 'Innovation Wing' },
-  { time: '01:00', period: 'PM', title: 'Executive Luncheon', description: 'Curated networking for founders, mentors, and industry operators.', venue: 'Sky Lounge' },
-  { time: '02:30', period: 'PM', title: 'Strategic Pivots', description: 'Mid-day evaluation sessions and mentor feedback loops for rapid iteration.', venue: 'Strategy Room B' },
-  { time: '06:00', period: 'PM', title: 'The Final Pitch', description: 'High-stakes presentation of market-ready prototypes to industry titans.', venue: 'Main Auditorium' },
-  { time: '08:30', period: 'PM', title: 'Award Ceremony', description: 'Recognition of top-tier ventures and official closing ceremony.', venue: 'Grand Ballroom' },
+  { time: '1', period: '', title: 'EVENT VISION', description: 'Create an open innovation event where students showcase their work, present startup ideas, and interact with mentors.', venue: '' },
+  { time: '2', period: '', title: 'STARTUP FOUNDRY / CODECRAFT ARENA / BUILDLAB EXPO', description: 'Startup presentations, software & AI demos, and hardware/IoT showcases with live interaction.', venue: 'Mini Auditorium' },
+  { time: '3', period: '', title: 'FOOD & INFORMAL NETWORKING', description: 'Networking lunch enabling conversations between students, mentors, and industry experts.', venue: '' },
+  { time: '4', period: '', title: 'IDEA PITCHING / DISCUSSION FORUMS / COMPETITIONS', description: 'Idea pitching sessions, interactive discussions, and technology-based competitions.', venue: ' ' },
+  { time: '5', period: '', title: 'MENTOR & INDUSTRY PARTICIPATION / BRAND SHOWCASE', description: 'Final presentations, mentor evaluations, and showcasing student innovation and projects.', venue: '' },
 ]
 
 export default function EventSchedule() {
