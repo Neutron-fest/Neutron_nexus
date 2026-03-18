@@ -9,6 +9,11 @@ const outfit = Outfit({ subsets: ['latin'], variable: '--font-outfit', display: 
 export const metadata: Metadata = {
   title: 'Neutron Nexus — Innovation Day 2026',
   description: 'Student Innovation Day | 28th March 2026 | Where Ideas Collide',
+  icons: {
+    icon: 'https://neutron-organization.vercel.app/neutron.png',
+    shortcut: 'https://neutron-organization.vercel.app/neutron.png',
+    apple: 'https://neutron-organization.vercel.app/neutron.png',
+  },
 }
 
 export default function RootLayout({
