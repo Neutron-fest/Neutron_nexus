@@ -1,6 +1,6 @@
 import React from 'react'
 import Link from 'next/link'
-import { Instagram, Linkedin, Twitter } from 'lucide-react'
+import { Instagram, Linkedin, X , Youtube} from 'lucide-react'
 
 export default function Footer() {
   return (
@@ -17,9 +17,10 @@ export default function Footer() {
           
           <div className="flex items-center gap-3">
             {[
-              { Icon: Linkedin, href: "#" },
-              { Icon: Twitter, href: "#" },
-              { Icon: Instagram, href: "#" }
+              { Icon: Linkedin, href: "https://www.linkedin.com/company/neutronfest/" },
+              { Icon: X, href: "https://x.com/neutronfest" },
+              { Icon: Instagram, href: "https://www.instagram.com/neutronfest/" },
+              { Icon: Youtube, href: "https://www.youtube.com/@neutronfest" }
             ].map(({ Icon, href }, idx) => (
               <a 
                 key={idx}

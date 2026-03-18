@@ -568,7 +568,7 @@ export default function About() {
                 className="flex justify-center"
               >
                 <a 
-                  href="#submit" 
+                  href="https://docs.google.com/forms/d/e/1FAIpQLSdVBHCEojiKZQrEvNoaiggGjnbN8dPKi-Fe-cVWLXhtQxfWuA/viewform?usp=sharing&ouid=117406261044074584609" 
                   className="group relative px-12 py-5 overflow-hidden rounded-full border border-white/10 bg-white/5 transition-all duration-500 hover:border-[#d2e6ff]/50"
                 >
                   <div className="absolute inset-0 bg-linear-to-r from-[#d2e6ff]/0 via-[#d2e6ff]/5 to-[#d2e6ff]/0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000" />
